@@ -510,20 +510,37 @@
             submitBtn.innerHTML = '⏳ Création de votre constellation...';
             submitBtn.disabled = true;
 
-            setTimeout(() => {
-                const message = type === 'seven' ?
-                    `🎉 FÉLICITATIONS ! Bienvenue dans 7 Ensemble (7 Personnes) !\n\n✅ Objectif : ${targetAmount}\n✅ Votre inscription est confirmée\n✅ Email de bienvenue envoyé\n✅ Votre constellation de 7 personnes sera formée sous 24-48h\n✅ Premiers gains dans 7 jours maximum\n\n🚀 Votre voyage vers la liberté financière commence MAINTENANT !` :
-                    `✨ FÉLICITATIONS ! Bienvenue dans 7 Ensemble (3 Personnes) !\n\n✅ Objectif : ${targetAmount}\n✅ Votre inscription est confirmée\n✅ Email de bienvenue envoyé\n✅ Votre constellation de 3 personnes sera formée sous 24-48h\n✅ Premiers gains dans 5 jours maximum\n\n🌟 Parfait pour découvrir le système avant de passer aux 7 personnes !`;
+            // Send data to backend
+            fetch('submit-form.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const message = type === 'seven' ?
+                        `🎉 FÉLICITATIONS ! Bienvenue dans 7 Ensemble (7 Personnes) !\n\n✅ Objectif : ${targetAmount}\n✅ Votre inscription est confirmée\n✅ Email de bienvenue envoyé\n✅ Votre constellation de 7 personnes sera formée sous 24-48h\n✅ Premiers gains dans 7 jours maximum\n\n🚀 Votre voyage vers la liberté financière commence MAINTENANT !` :
+                        `✨ FÉLICITATIONS ! Bienvenue dans 7 Ensemble (3 Personnes) !\n\n✅ Objectif : ${targetAmount}\n✅ Votre inscription est confirmée\n✅ Email de bienvenue envoyé\n✅ Votre constellation de 3 personnes sera formée sous 24-48h\n✅ Premiers gains dans 5 jours maximum\n\n🌟 Parfait pour découvrir le système avant de passer aux 7 personnes !`;
 
-                alert(message);
+                    alert(message);
 
-                closeModal(type + 'Modal');
-                document.getElementById(prefix + 'Form').reset();
+                    closeModal(type + 'Modal');
+                    document.getElementById(prefix + 'Form').reset();
+                } else {
+                    alert('❌ Erreur: ' + (data.message || 'Une erreur est survenue. Veuillez réessayer.'));
+                }
+            })
+            .catch(error => {
+                console.error('Erreur de soumission:', error);
+                alert('❌ Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.');
+            })
+            .finally(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
-
-            console.log('Données utilisateur 7 Ensemble:', formData);
+            });
         }
 
 

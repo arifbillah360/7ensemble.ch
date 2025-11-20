@@ -1,0 +1,40 @@
+# 7 Ensemble - Apache Configuration
+
+# Enable rewriting
+RewriteEngine On
+
+# Block access to sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect data directory
+<DirectoryMatch "data">
+    Order allow,deny
+    Deny from all
+</DirectoryMatch>
+
+# Allow access to CSV/JSON download from admin
+<Files ~ "\.(csv|json)$">
+    Order deny,allow
+    Deny from all
+    # Allow from admin.php
+</Files>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Set default index files
+DirectoryIndex index.html index.php
+
+# PHP security settings
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_value error_log /tmp/php_errors.log
+</IfModule>
+
+# Force HTTPS (uncomment when SSL is configured)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

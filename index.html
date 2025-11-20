@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Ensemble - Votre Nouvelle Aventure Financière</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">7 Ensemble</a>
+            <div class="nav-menu">
+                <a href="#principe">Principe</a>
+                <a href="#tours">Les 7 Tours</a>
+                <a href="#mission">Mission</a>
+                <a href="#urgence">Urgence</a>
+            </div>
+            <button class="btn-primary" onclick="showSevenModal()">Rejoindre la révolution</button>
+        </nav>
+    </header>
+
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>7 Ensemble</h1>
+                <p class="subtitle">Qui, avec 21€, a changé ma vie</p>
+                <p class="tagline">Une plateforme conçue pour que tout le monde puisse vivre et profiter des bons moments de la vie en famille, sans avoir à se soucier si demain, ils auront de quoi payer leurs factures</p>
+
+                <div class="transformation-amount">1,575,747€</div>
+                <p style="font-size: 1.5rem; margin-bottom: 1rem;">Votre destination finale avec seulement 21€ de départ</p>
+                <p style="font-size: 1.8rem; color: #ff6b6b; font-weight: bold; margin-bottom: 3rem;">À RISQUE ZÉRO POUR VOUS</p>
+
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
+                    <button class="btn-primary" onclick="showThreeModal()" style="background: linear-gradient(45deg, #f093fb, #f5576c);">Commencer avec 3 personnes</button>
+                    <button class="btn-primary" onclick="showSevenModal()">Commencer avec 7 personnes</button>
+                </div>
+
+                <p style="font-size: 1.2rem; color: #4ecdc4;">En ligne, ça va très très vite ! Un message WhatsApp et c'est parti !</p>
+            </div>
+        </section>
+
+
+        <section id="principe" class="principe-section">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 3rem; margin-bottom: 2rem;">Le Principe Simple : La Force du 7 et du 21</h2>
+
+                <div style="text-align: center; margin: 3rem 0; padding: 2rem; background: rgba(255,107,107,0.1); border-radius: 15px;">
+                    <h3 style="font-size: 2rem; color: #f093fb;">Pourquoi 21€ et pourquoi 7 ?</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.8; margin-top: 1rem;">
+                        <strong style="color: #4ecdc4;">Le chiffre 7 = puissance spirituelle et symbolique énorme</strong><br>
+                        <strong style="color: #ff6b6b;">Le 3 = force universelle (3 × 7 = 21, et 2+1 = 3)</strong><br>
+                        Ce ne sont pas des montants choisis au hasard, c'est de la pure énergie mathématique !
+                    </p>
+                </div>
+
+                <div class="constellation-visual">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem; position: relative; z-index: 1;">Votre Constellation : Le Réseau Qui Vous Suivra À Tout Jamais</h3>
+                    <div class="constellation-container">
+                        <div class="constellation-center">VOUS</div>
+                        <div class="constellation-member member-1">1</div>
+                        <div class="constellation-member member-2">2</div>
+                        <div class="constellation-member member-3">3</div>
+                        <div class="constellation-member member-4">4</div>
+                        <div class="constellation-member member-5">5</div>
+                        <div class="constellation-member member-6">6</div>
+                        <div class="constellation-member member-7">7</div>
+                    </div>
+                    <p style="font-size: 1.3rem; color: #4ecdc4; font-weight: bold; position: relative; z-index: 1;">Une fois votre Constellation créée, chaque tour peut durer UNE SEMAINE !</p>
+                    <p style="font-size: 1.2rem; margin-top: 1rem; position: relative; z-index: 1;">Le plus long, c'est le premier tour. Après, ça va très très vite !</p>
+                </div>
+
+
+                <div class="principe-grid">
+                    <div class="principe-card">
+                        <div class="principe-number">💝</div>
+                        <h3>Vous Aidez</h3>
+                        <p style="font-size: 1.5rem; color: #4ecdc4; margin: 1rem 0;"><strong>21€</strong></p>
+                        <p>à une personne dans le besoin</p>
+                    </div>
+                    <div class="principe-card">
+                        <div class="principe-number">🎁</div>
+                        <h3>Vous Recevez</h3>
+                        <p style="font-size: 1.5rem; color: #4ecdc4; margin: 1rem 0;"><strong>147€</strong></p>
+                        <p>de 7 personnes (21€ chacune)</p>
+                    </div>
+                    <div class="principe-card">
+                        <div class="principe-number">✨</div>
+                        <h3>Vous Gardez</h3>
+                        <p style="font-size: 1.5rem; color: #4ecdc4; margin: 1rem 0;"><strong>47€ nets</strong></p>
+                        <p>Vous avez déjà doublé votre mise !</p>
+                    </div>
+                </div>
+
+
+                <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: linear-gradient(45deg, rgba(78,205,196,0.2), rgba(255,107,107,0.2)); border-radius: 20px; border: 2px solid #4ecdc4;">
+                    <h2 style="font-size: 2.5rem; color: #ff6b6b; margin-bottom: 2rem;">🚨 DEUX POSSIBILITÉS POUR COMMENCER 🚨</h2>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px);">
+                            <h3 style="color: #f093fb; font-size: 1.8rem;">Option 3 Personnes</h3>
+                            <p style="font-size: 1.2rem; margin: 1rem 0;">Pour ceux qui trouvent 7 "beaucoup"</p>
+                            <p style="color: #4ecdc4; font-size: 1.1rem;">Gain total : 7,789€</p>
+                            <p style="margin-top: 1rem;">Une fois que vous voyez que ça marche, vous passez au 7 !</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px);">
+                            <h3 style="color: #4ecdc4; font-size: 1.8rem;">Option 7 Personnes</h3>
+                            <p style="font-size: 1.2rem; margin: 1rem 0;">Pour les audacieux qui veulent tout</p>
+                            <p style="color: #ff6b6b; font-size: 1.1rem;">Gain total : 1,575,747€</p>
+                            <p style="margin-top: 1rem;">La voie royale vers la liberté financière !</p>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 1.4rem; font-weight: bold; color: #4ecdc4;">En ligne, c'est ULTRA RAPIDE : un message WhatsApp, un lien de paiement, et c'est parti ! 🚀</p>
+                </div>
+
+
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,107,107,0.2); border-radius: 15px;">
+                    <h3 style="font-size: 2rem; color: #ff6b6b;">⚠️ CE N'EST QUE LE DÉBUT ! ⚠️</h3>
+                    <p style="font-size: 1.3rem; margin-top: 1rem;">147€, c'est juste pour prouver que ça marche. Les VRAIS gains viennent avec les tours suivants !</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="tours" class="tours-section">
+            <div class="container">
+                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Les 7 Tours Magiques : Votre Ascension Vers la Prospérité</h2>
+                <p style="font-size: 1.5rem; margin-bottom: 3rem; color: #4ecdc4;">
+                    Préparez-vous à découvrir comment <strong>21€ se transforment en 1,575,747€</strong> grâce à la puissance exponentielle de notre système !
+                </p>
+
+
+                <div class="tours-timeline">
+                    <div class="tour-item">
+                        <div class="tour-number">1</div>
+                        <div class="tour-content">
+                            <div class="tour-title">Tour 1 : L'Éveil</div>
+                            <div class="tour-amount">147€</div>
+                            <p>Votre première victoire qui confirme que le système fonctionne parfaitement</p>
+                        </div>
+                    </div>
+
+
+                    <div class="tour-item">
+                        <div class="tour-number">2</div>
+                        <div class="tour-content">
+                            <div class="tour-title">Tour 2 : L'Élan</div>
+                            <div class="tour-amount">700€</div>
+                            <p>L'accélération commence, vos premières vraies économies</p>
+                        </div>
+                    </div>
+
+
+                    <div class="tour-item">
+                        <div class="tour-number">3</div>
+                        <div class="tour-content">
+                            <div class="tour-title">Tour 3 : La Percée</div>
+                            <div class="tour-amount">3,500€</div>
+                            <p>Le tournant décisif qui change votre rapport à l'argent</p>
+                        </div>
+                    </div>
+
+
+                    <div class="tour-item">
+                        <div class="tour-number">4</div>
+                        <div class="tour-content">
+                            <div class="tour-title">Tour 4 : L'Envol</div>
+                            <div class="tour-amount">14,000€</div>
+                            <p>La liberté financière commence à prendre forme</p>
+                        </div>
+                    </div>
+
+
+                    <div class="tour-item">
+                        <div class="tour-number">5</div>
+                        <div class="tour-content">
+                            <div class="tour-title">Tour 5 : La Puissance</div>
+                            <div class="tour-amount">70,000€</div>
+                            <p>Vos projets les plus fous deviennent réalisables</p>
+                        </div>
+                    </div>
+
+
+                    <div class="tour-item">
+                        <div class="tour-number">6</div>
+                        <div class="tour-content">
+                            <div class="tour-title">Tour 6 : L'Excellence</div>
+                            <div class="tour-amount">350,000€</div>
+                            <p>L'indépendance financière totale à portée de main</p>
+                        </div>
+                    </div>
+
+
+                    <div class="tour-item">
+                        <div class="tour-number">7</div>
+                        <div class="tour-content">
+                            <div class="tour-title">Tour 7 : L'Apothéose</div>
+                            <div class="tour-amount">1,400,000€</div>
+                            <p>Le sommet de votre transformation financière</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="text-align: center; margin-top: 4rem;">
+                    <h3 style="font-size: 2.5rem; color: #f093fb;">La Vitesse de Croisière : En Moins d'Une Année, Tout Bascule</h3>
+                    <p style="font-size: 1.3rem; margin: 2rem 0;">
+                        La beauté du système 7 Ensemble réside dans son <strong style="color: #4ecdc4;">accélération naturelle</strong>. Une fois votre Constellation créée, chaque tour se déroule à une vitesse époustouflante ! En moins d'une semaine, chaque membre de votre réseau constitue sa propre Constellation, créant un effet domino extraordinaire.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="urgence" class="urgence-section">
+            <div class="container">
+                <h2 style="font-size: 3rem; margin-bottom: 2rem;">⚡ URGENCE : Chaque Jour de Retard Est un Jour de Liberté Financière en Moins ! ⚡</h2>
+
+                <p style="font-size: 1.5rem; margin: 2rem 0;">
+                    <strong style="color: #ff6b6b;">L'heure est venue de transformer votre vie !</strong> Pendant que vous hésitez, d'autres construisent déjà leur Constellation et récoltent leurs premiers gains. <strong style="color: #4ecdc4;">Chaque jour de retard est un jour de liberté financière en moins.</strong>
+                </p>
+
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">47€</div>
+                        <p><strong>Premier Gain</strong><br>Votre récompense immédiate dès la première semaine</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7</div>
+                        <p><strong>Jours Maximum</strong><br>Pour constituer votre Constellation complète</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <p><strong>Taux de Réussite</strong><br>Avec votre engagement et notre système</p>
+                    </div>
+                </div>
+
+
+                <p style="font-size: 1.3rem; text-align: center; font-style: italic; color: #4ecdc4;">
+                    "Entraidons-nous car ensemble, nous changerons le monde et éradiquerons la pauvreté."
+                </p>
+
+
+                <button class="btn-primary" onclick="showSevenModal()" style="font-size: 1.3rem; padding: 20px 40px; margin-top: 2rem;">🚀 Je Rejoins la Révolution Maintenant !</button>
+            </div>
+        </section>
+
+
+        <section id="mission" style="background: rgba(255,255,255,0.05); padding: 4rem 0; border-radius: 25px; margin: 4rem 0;">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 3rem; margin-bottom: 2rem;">Mon Petit Coup de Gueule : Pourquoi 7 Ensemble ?</h2>
+
+                <div style="text-align: center; margin: 3rem 0; padding: 3rem; background: rgba(255,107,107,0.15); border-radius: 20px; border-left: 5px solid #ff6b6b;">
+                    <p style="font-size: 1.8rem; font-style: italic; color: #ff6b6b; font-weight: bold;">
+                        "Ne supportant plus ce qui se passe autour de moi, j'ai créé cette plateforme d'entraide révolutionnaire"
+                    </p>
+                </div>
+
+
+                <div style="background: rgba(78,205,196,0.1); padding: 3rem; border-radius: 20px; margin: 3rem 0;">
+                    <h3 style="font-size: 2.2rem; color: #4ecdc4; text-align: center; margin-bottom: 2rem;">🎯 Aller À LA SOURCE Du Problème</h3>
+
+                    <p style="font-size: 1.3rem; line-height: 1.8; margin: 2rem 0;">
+                        <strong>Tout le monde cherche de l'argent partout, mais personne ne va au cœur du problème.</strong> Les États ne vont pas au cœur du problème. Il faut aller à la source : <strong style="color: #4ecdc4;">LA PERSONNE</strong>.
+                    </p>
+
+                    <p style="font-size: 1.3rem; line-height: 1.8; margin: 2rem 0;">
+                        Si la personne a un meilleur revenu, un meilleur pouvoir d'achat, il n'y a plus de problèmes de chômage, de retraite insuffisante, de vol dans les magasins. <strong style="color: #ff6b6b;">Avec mon plan, il n'y aura plus de soucis de retraite et plus de vol !</strong>
+                    </p>
+                </div>
+
+
+                <div style="background: linear-gradient(45deg, rgba(255,107,107,0.2), rgba(78,205,196,0.2)); padding: 3rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: #ff6b6b; margin-bottom: 2rem;">🛡️ À RISQUE ZÉRO POUR VOUS</h3>
+                    <p style="font-size: 1.4rem; line-height: 1.8;">
+                        <strong>Le seul qui dépense de l'argent pour créer cette plateforme, c'est MOI.</strong> Vous ne risquez que 21€. Je ne prends aucune commission, aucun frais supplémentaire. <strong style="color: #4ecdc4;">Je veux juste m'en sortir au même niveau que vous !</strong>
+                    </p>
+                    <p style="font-size: 1.2rem; margin-top: 1.5rem; font-style: italic; color: #f093fb;">
+                        "Mon intérêt, c'est VOUS. Voilà."
+                    </p>
+                </div>
+
+
+                <div style="text-align: center; margin: 3rem 0;">
+                    <h3 style="font-size: 2rem; color: #4ecdc4;">⚖️ 100% Légal : C'est Un DON</h3>
+                    <p style="font-size: 1.2rem; margin: 1rem 0;">
+                        J'ai vérifié avec des avocats suisses : <strong>vous avez le droit de faire un don à quelqu'un.</strong> Ce n'est ni une pyramide, ni un système de Ponzi. C'est de l'entraide pure, comme ça se fait depuis des siècles dans certaines cultures (tontines africaines, associations rotatives, friendly societies britanniques).
+                    </p>
+                    <p style="font-size: 1.1rem; color: #f093fb;">
+                        J'ai juste simplifié un concept vieux comme le monde et le rendre accessible avec 21€ !
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 6rem 0; text-align: center; border-radius: 25px; margin: 4rem 0;">
+            <div class="container">
+                <h2 style="font-size: 4rem; margin-bottom: 2rem;">Rejoignez la Révolution 7 Ensemble Dès Maintenant !</h2>
+
+                <div class="transformation-amount" style="margin: 2rem 0;">1,575,747€</div>
+                <p style="font-size: 1.8rem; margin-bottom: 1rem;">Votre destination finale avec seulement 21€ de départ</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 3rem 0; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <div style="background: rgba(0,0,0,0.2); padding: 2rem; border-radius: 15px; border: 2px solid rgba(255,255,255,0.3);">
+                        <h4 style="color: #4ecdc4; font-size: 1.2rem;">Investissement Initial</h4>
+                        <p style="font-size: 2rem; font-weight: bold;">Seulement 21€</p>
+                        <p>pour changer votre vie</p>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.2); padding: 2rem; border-radius: 15px; border: 2px solid rgba(255,255,255,0.3);">
+                        <h4 style="color: #4ecdc4; font-size: 1.2rem;">Premier Résultat</h4>
+                        <p style="font-size: 2rem; font-weight: bold;">47€ nets</p>
+                        <p>dès la première semaine</p>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.2); padding: 2rem; border-radius: 15px; border: 2px solid rgba(255,255,255,0.3);">
+                        <h4 style="color: #4ecdc4; font-size: 1.2rem;">Potentiel Final</h4>
+                        <p style="font-size: 2rem; font-weight: bold;">Plus d'1,5 million d'euros</p>
+                        <p>à terme</p>
+                    </div>
+                </div>
+
+
+                <button class="btn-primary" onclick="showSevenModal()" style="font-size: 1.5rem; padding: 25px 50px; margin-top: 2rem; box-shadow: 0 10px 30px rgba(255,255,255,0.3);">
+                    🌟 Ma Nouvelle Vie Commence Maintenant ! 🌟
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Modal d'inscription 7 personnes -->
+    <div id="sevenModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('sevenModal')">&times;</span>
+            <h2 style="text-align: center; color: #4ecdc4; margin-bottom: 2rem;">🌟 Rejoindre 7 Ensemble - Option 7 Personnes 🌟</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
+                Destination finale : <strong style="color: #ff6b6b;">1,575,747€</strong>
+            </p>
+
+            <form id="sevenForm" onsubmit="submitForm(event, 'seven')">
+                <div class="form-group">
+                    <label for="sevenFullName">Nom complet :</label>
+                    <input type="text" id="sevenFullName" required placeholder="Votre nom et prénom">
+                </div>
+                <div class="form-group">
+                    <label for="sevenEmail">Email :</label>
+                    <input type="email" id="sevenEmail" required placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="sevenCountry">Pays :</label>
+                    <select id="sevenCountry" required>
+                        <option value="">Choisir votre pays</option>
+                        <option value="FR">France</option>
+                        <option value="CH">Suisse</option>
+                        <option value="BE">Belgique</option>
+                        <option value="CA">Canada</option>
+                        <option value="MA">Maroc</option>
+                        <option value="TN">Tunisie</option>
+                        <option value="SN">Sénégal</option>
+                        <option value="CI">Côte d'Ivoire</option>
+                        <option value="IN">Inde</option>
+                        <option value="OTHER">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sevenIdNumber">Numéro de carte d'identité :</label>
+                    <input type="text" id="sevenIdNumber" required placeholder="Utilisé uniquement pour vérification">
+                    <small style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Sécurisé et confidentiel</small>
+                </div>
+                <div class="form-group">
+                    <label for="sevenPaymentMethod">Mode de paiement préféré :</label>
+                    <select id="sevenPaymentMethod" required style="background: rgba(255,255,255,0.1); color: white; padding: 15px; border-radius: 10px;">
+                        <option value="" style="background: #1a1a2e; color: white;">Choisir votre méthode</option>
+                        <option value="card" style="background: #1a1a2e; color: white;">💳 Carte bancaire</option>
+                        <option value="paypal" style="background: #1a1a2e; color: white;">🔵 PayPal</option>
+                        <option value="transfer" style="background: #1a1a2e; color: white;">🏦 Virement bancaire</option>
+                        <option value="mobile" style="background: #1a1a2e; color: white;">📱 Mobile Money (Afrique)</option>
+                        <option value="crypto" style="background: #1a1a2e; color: white;">₿ Bitcoin/Crypto</option>
+                        <option value="other" style="background: #1a1a2e; color: white;">🌍 Autre (nous nous adapterons)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" required style="width: auto; margin-right: 0.5rem;">
+                        <span style="color: rgba(255,255,255,0.9);">J'accepte le système d'entraide 7 Ensemble (option 7 personnes) et comprends le principe de solidarité mutuelle.</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; font-size: 1.2rem; padding: 20px;">
+                    🚀 Créer Ma Constellation de 7 Personnes !
+                </button>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                    Votre voyage vers 1,575,747€ commence maintenant !
+                </p>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Modal d'inscription 3 personnes -->
+    <div id="threeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('threeModal')">&times;</span>
+            <h2 style="text-align: center; color: #f093fb; margin-bottom: 2rem;">✨ Rejoindre 7 Ensemble - Option 3 Personnes ✨</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
+                Gain total : <strong style="color: #f093fb;">7,789€</strong> - Pour commencer en douceur !
+            </p>
+
+            <form id="threeForm" onsubmit="submitForm(event, 'three')">
+                <div class="form-group">
+                    <label for="threeFullName">Nom complet :</label>
+                    <input type="text" id="threeFullName" required placeholder="Votre nom et prénom">
+                </div>
+                <div class="form-group">
+                    <label for="threeEmail">Email :</label>
+                    <input type="email" id="threeEmail" required placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="threeCountry">Pays :</label>
+                    <select id="threeCountry" required>
+                        <option value="">Choisir votre pays</option>
+                        <option value="FR">France</option>
+                        <option value="CH">Suisse</option>
+                        <option value="BE">Belgique</option>
+                        <option value="CA">Canada</option>
+                        <option value="MA">Maroc</option>
+                        <option value="TN">Tunisie</option>
+                        <option value="SN">Sénégal</option>
+                        <option value="CI">Côte d'Ivoire</option>
+                        <option value="IN">Inde</option>
+                        <option value="OTHER">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="threeIdNumber">Numéro de carte d'identité :</label>
+                    <input type="text" id="threeIdNumber" required placeholder="Utilisé uniquement pour vérification">
+                    <small style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Sécurisé et confidentiel</small>
+                </div>
+                <div class="form-group">
+                    <label for="threePaymentMethod">Mode de paiement préféré :</label>
+                    <select id="threePaymentMethod" required style="background: rgba(255,255,255,0.1); color: white; padding: 15px; border-radius: 10px;">
+                        <option value="" style="background: #1a1a2e; color: white;">Choisir votre méthode</option>
+                        <option value="card" style="background: #1a1a2e; color: white;">💳 Carte bancaire</option>
+                        <option value="paypal" style="background: #1a1a2e; color: white;">🔵 PayPal</option>
+                        <option value="transfer" style="background: #1a1a2e; color: white;">🏦 Virement bancaire</option>
+                        <option value="mobile" style="background: #1a1a2e; color: white;">📱 Mobile Money (Afrique)</option>
+                        <option value="crypto" style="background: #1a1a2e; color: white;">₿ Bitcoin/Crypto</option>
+                        <option value="other" style="background: #1a1a2e; color: white;">🌍 Autre (nous nous adapterons)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" required style="width: auto; margin-right: 0.5rem;">
+                        <span style="color: rgba(255,255,255,0.9);">J'accepte le système d'entraide 7 Ensemble (option 3 personnes) et comprends le principe de solidarité mutuelle.</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; font-size: 1.2rem; padding: 20px; background: linear-gradient(45deg, #f093fb, #f5576c);">
+                    ✨ Créer Ma Constellation de 3 Personnes !
+                </button>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                    Votre première expérience avec 7 Ensemble commence !
+                </p>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        function showSevenModal() {
+            document.getElementById('sevenModal').classList.add('show');
+        }
+
+
+        function showThreeModal() {
+            document.getElementById('threeModal').classList.add('show');
+        }
+
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('show');
+            }
+        }
+
+
+        function submitForm(e, type) {
+            e.preventDefault();
+
+            const prefix = type === 'seven' ? 'seven' : 'three';
+            const targetAmount = type === 'seven' ? '1,575,747€' : '7,789€';
+
+            const formData = {
+                type: type,
+                fullName: document.getElementById(prefix + 'FullName').value,
+                email: document.getElementById(prefix + 'Email').value,
+                country: document.getElementById(prefix + 'Country').value,
+                idNumber: document.getElementById(prefix + 'IdNumber').value,
+                paymentMethod: document.getElementById(prefix + 'PaymentMethod').value
+            };
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '⏳ Création de votre constellation...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                const message = type === 'seven' ?
+                    `🎉 FÉLICITATIONS ! Bienvenue dans 7 Ensemble (7 Personnes) !\n\n✅ Objectif : ${targetAmount}\n✅ Votre inscription est confirmée\n✅ Email de bienvenue envoyé\n✅ Votre constellation de 7 personnes sera formée sous 24-48h\n✅ Premiers gains dans 7 jours maximum\n\n🚀 Votre voyage vers la liberté financière commence MAINTENANT !` :
+                    `✨ FÉLICITATIONS ! Bienvenue dans 7 Ensemble (3 Personnes) !\n\n✅ Objectif : ${targetAmount}\n✅ Votre inscription est confirmée\n✅ Email de bienvenue envoyé\n✅ Votre constellation de 3 personnes sera formée sous 24-48h\n✅ Premiers gains dans 5 jours maximum\n\n🌟 Parfait pour découvrir le système avant de passer aux 7 personnes !`;
+
+                alert(message);
+
+                closeModal(type + 'Modal');
+                document.getElementById(prefix + 'Form').reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+
+            console.log('Données utilisateur 7 Ensemble:', formData);
+        }
+
+
+        // Animation au scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.principe-card, .tour-item, .mission-card, .stat-item');
+            elements.forEach((el, index) => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight * 0.8) {
+                    el.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+                }
+            });
+        }
+
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Animation initiale
+        setTimeout(animateOnScroll, 500);
+
+
+        // Animation des chiffres au scroll
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.stat-number, .tour-amount');
+            numbers.forEach(num => {
+                const rect = num.getBoundingClientRect().top;
+                if (rect.top < window.innerHeight && !num.classList.contains('animated')) {
+                    num.classList.add('animated');
+                    const finalValue = num.textContent;
+                    num.textContent = '0';
+
+                    let current = 0;
+                    const target = parseInt(finalValue.replace(/[^\d]/g, ''));
+                    const increment = target / 50;
+
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            num.textContent = finalValue;
+                            clearInterval(timer);
+                        } else {
+                            num.textContent = Math.floor(current) + (finalValue.includes('€') ? '€' : '');
+                        }
+                    }, 50);
+                }
+            });
+        }
+
+
+        window.addEventListener('scroll', animateNumbers);
+    </script>
+</body>
+</html>

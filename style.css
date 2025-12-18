@@ -531,6 +531,282 @@ nav {
 }
 
 /* ========================================
+   GLASSMORPHIC MODAL
+   ======================================== */
+
+.modal-glassmorphic {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 35, 126, 0.95), rgba(57, 73, 171, 0.95), rgba(92, 107, 192, 0.95));
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-glassmorphic.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content-glass {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.7), rgba(83, 52, 131, 0.7));
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    margin: 2rem;
+    padding: 3rem;
+    border-radius: 30px;
+    max-width: 550px;
+    width: 100%;
+    position: relative;
+    animation: slideUp 0.4s ease-out;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 80px rgba(102, 126, 234, 0.3),
+                inset 0 0 80px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-title-glass {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: #4ecdc4;
+    text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+    font-weight: bold;
+}
+
+.form-group-glass {
+    margin-bottom: 1.5rem;
+}
+
+.form-group-glass label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4ecdc4;
+    font-size: 1rem;
+}
+
+.input-glass,
+.select-glass {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.input-glass:focus,
+.select-glass:focus {
+    outline: none;
+    border-color: #4ecdc4;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3),
+                inset 0 0 20px rgba(78, 205, 196, 0.1);
+}
+
+.input-glass::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.select-glass {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234ecdc4' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 45px;
+}
+
+.select-glass option {
+    background: #1a1a2e;
+    color: white;
+    padding: 10px;
+}
+
+.checkbox-group {
+    margin: 2rem 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}
+
+.checkbox-glass {
+    width: 20px !important;
+    height: 20px;
+    margin-right: 0.75rem;
+    margin-top: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.option-selection-glass {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+.option-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #f093fb;
+    font-weight: bold;
+}
+
+.radio-options {
+    display: grid;
+    gap: 1rem;
+}
+
+.radio-card {
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.radio-content {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.radio-card:hover .radio-content {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #4ecdc4;
+    transform: translateX(5px);
+}
+
+.radio-card input[type="radio"]:checked + .radio-content {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+    border-color: #4ecdc4;
+    box-shadow: 0 0 30px rgba(78, 205, 196, 0.3);
+}
+
+.radio-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.radio-icon {
+    font-size: 1.2rem;
+    margin-right: 0.75rem;
+}
+
+.radio-card input[type="radio"]:checked ~ .radio-content .radio-icon {
+    filter: hue-rotate(180deg) brightness(1.5);
+}
+
+.radio-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+}
+
+.radio-amount {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin: 0.5rem 0;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.radio-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+}
+
+.btn-submit-glass {
+    width: 100%;
+    padding: 18px 30px;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    background-size: 200% 200%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-submit-glass:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.7);
+}
+
+.btn-submit-glass:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.btn-submit-glass:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submit-tagline {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #f093fb;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(240, 147, 251, 0.5);
+}
+
+/* ========================================
    FORMS
    ======================================== */
 
@@ -1085,5 +1361,56 @@ td {
 
     .impact-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Glassmorphic Modal Mobile Styles */
+    .modal-content-glass {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+        max-width: 95%;
+    }
+
+    .modal-title-glass {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group-glass label {
+        font-size: 0.9rem;
+    }
+
+    .input-glass,
+    .select-glass {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    .option-selection-glass {
+        padding: 1.5rem 1rem;
+    }
+
+    .option-title {
+        font-size: 1.2rem;
+    }
+
+    .radio-content {
+        padding: 1rem;
+    }
+
+    .radio-amount {
+        font-size: 1.5rem;
+    }
+
+    .radio-description {
+        font-size: 0.85rem;
+    }
+
+    .btn-submit-glass {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+
+    .submit-tagline {
+        font-size: 1rem;
     }
 }

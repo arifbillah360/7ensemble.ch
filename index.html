@@ -331,27 +331,29 @@
     </main>
 
 
-    <!-- Modal d'inscription 7 personnes -->
-    <div id="sevenModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('sevenModal')">&times;</span>
-            <h2 style="text-align: center; color: #4ecdc4; margin-bottom: 2rem;">🌟 Rejoindre 7 Ensemble - Option 7 Personnes 🌟</h2>
-            <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
-                Destination finale : <strong style="color: #ff6b6b;">1,575,747€</strong>
-            </p>
+    <!-- Modal d'inscription unifié -->
+    <div id="registrationModal" class="modal modal-glassmorphic">
+        <div class="modal-content-glass">
+            <span class="close" onclick="closeModal('registrationModal')">&times;</span>
+            <h2 class="modal-title-glass">🌟 Rejoindre 7 Ensemble 🌟</h2>
 
-            <form id="sevenForm" onsubmit="submitForm(event, 'seven')">
-                <div class="form-group">
-                    <label for="sevenFullName">Nom complet :</label>
-                    <input type="text" id="sevenFullName" required placeholder="Votre nom et prénom">
+            <form id="registrationForm" onsubmit="submitUnifiedForm(event)">
+                <!-- Nom complet -->
+                <div class="form-group-glass">
+                    <label for="fullName">Nom complet</label>
+                    <input type="text" id="fullName" required placeholder="Votre nom et prénom" class="input-glass">
                 </div>
-                <div class="form-group">
-                    <label for="sevenEmail">Email :</label>
-                    <input type="email" id="sevenEmail" required placeholder="votre@email.com">
+
+                <!-- Email -->
+                <div class="form-group-glass">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="votre@email.com" class="input-glass">
                 </div>
-                <div class="form-group">
-                    <label for="sevenCountry">Pays :</label>
-                    <select id="sevenCountry" required>
+
+                <!-- Pays -->
+                <div class="form-group-glass">
+                    <label for="country">Pays</label>
+                    <select id="country" required class="select-glass">
                         <option value="">Choisir votre pays</option>
                         <option value="FR">France</option>
                         <option value="CH">Suisse</option>
@@ -365,103 +367,65 @@
                         <option value="OTHER">Autre</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="sevenIdNumber">Numéro de carte d'identité :</label>
-                    <input type="text" id="sevenIdNumber" required placeholder="Utilisé uniquement pour vérification">
-                    <small style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Sécurisé et confidentiel</small>
-                </div>
-                <div class="form-group">
-                    <label for="sevenPaymentMethod">Mode de paiement préféré :</label>
-                    <select id="sevenPaymentMethod" required style="background: rgba(255,255,255,0.1); color: white; padding: 15px; border-radius: 10px;">
-                        <option value="" style="background: #1a1a2e; color: white;">Choisir votre méthode</option>
-                        <option value="card" style="background: #1a1a2e; color: white;">💳 Carte bancaire</option>
-                        <option value="paypal" style="background: #1a1a2e; color: white;">🔵 PayPal</option>
-                        <option value="transfer" style="background: #1a1a2e; color: white;">🏦 Virement bancaire</option>
-                        <option value="mobile" style="background: #1a1a2e; color: white;">📱 Mobile Money (Afrique)</option>
-                        <option value="crypto" style="background: #1a1a2e; color: white;">₿ Bitcoin/Crypto</option>
-                        <option value="other" style="background: #1a1a2e; color: white;">🌍 Autre (nous nous adapterons)</option>
+
+                <!-- Mode de paiement -->
+                <div class="form-group-glass">
+                    <label for="paymentMethod">Mode de paiement préféré</label>
+                    <select id="paymentMethod" required class="select-glass">
+                        <option value="">Choisir votre méthode</option>
+                        <option value="card">💳 Carte bancaire</option>
+                        <option value="paypal">🔵 PayPal</option>
+                        <option value="transfer">🏦 Virement bancaire</option>
+                        <option value="mobile">📱 Mobile Money (Afrique)</option>
+                        <option value="crypto">₿ Bitcoin/Crypto</option>
+                        <option value="other">🌍 Autre</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" required style="width: auto; margin-right: 0.5rem;">
-                        <span style="color: rgba(255,255,255,0.9);">J'accepte le système d'entraide 7 Ensemble (option 7 personnes) et comprends le principe de solidarité mutuelle.</span>
+
+                <!-- Acceptation -->
+                <div class="form-group-glass checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="acceptTerms" required class="checkbox-glass">
+                        <span>J'accepte le système d'entraide 7 Ensemble et comprends le principe de solidarité mutuelle.</span>
                     </label>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; font-size: 1.2rem; padding: 20px;">
-                    🚀 Créer Ma Constellation de 7 Personnes !
+
+                <!-- Section de sélection d'option -->
+                <div class="option-selection-glass">
+                    <h3 class="option-title">✨ Choisissez votre option ✨</h3>
+
+                    <div class="radio-options">
+                        <label class="radio-card">
+                            <input type="radio" name="optionType" value="three" required class="radio-glass">
+                            <div class="radio-content">
+                                <div class="radio-header">
+                                    <span class="radio-icon">⚪</span>
+                                    <span class="radio-label">Option 3 personnes</span>
+                                </div>
+                                <div class="radio-amount">vers 7'789€</div>
+                                <div class="radio-description">Pour commencer en douceur</div>
+                            </div>
+                        </label>
+
+                        <label class="radio-card">
+                            <input type="radio" name="optionType" value="seven" class="radio-glass">
+                            <div class="radio-content">
+                                <div class="radio-header">
+                                    <span class="radio-icon">⚪</span>
+                                    <span class="radio-label">Option 7 personnes</span>
+                                </div>
+                                <div class="radio-amount">vers 1'575'747€</div>
+                                <div class="radio-description">La voie royale vers la liberté financière</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit-glass">
+                    🚀 Créer Ma Constellation !
                 </button>
-                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
-                    Votre voyage vers 1,575,747€ commence maintenant !
-                </p>
-            </form>
-        </div>
-    </div>
-
-
-    <!-- Modal d'inscription 3 personnes -->
-    <div id="threeModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('threeModal')">&times;</span>
-            <h2 style="text-align: center; color: #f093fb; margin-bottom: 2rem;">✨ Rejoindre 7 Ensemble - Option 3 Personnes ✨</h2>
-            <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
-                Gain total : <strong style="color: #f093fb;">7,789€</strong> - Pour commencer en douceur !
-            </p>
-
-            <form id="threeForm" onsubmit="submitForm(event, 'three')">
-                <div class="form-group">
-                    <label for="threeFullName">Nom complet :</label>
-                    <input type="text" id="threeFullName" required placeholder="Votre nom et prénom">
-                </div>
-                <div class="form-group">
-                    <label for="threeEmail">Email :</label>
-                    <input type="email" id="threeEmail" required placeholder="votre@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="threeCountry">Pays :</label>
-                    <select id="threeCountry" required>
-                        <option value="">Choisir votre pays</option>
-                        <option value="FR">France</option>
-                        <option value="CH">Suisse</option>
-                        <option value="BE">Belgique</option>
-                        <option value="CA">Canada</option>
-                        <option value="MA">Maroc</option>
-                        <option value="TN">Tunisie</option>
-                        <option value="SN">Sénégal</option>
-                        <option value="CI">Côte d'Ivoire</option>
-                        <option value="IN">Inde</option>
-                        <option value="OTHER">Autre</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="threeIdNumber">Numéro de carte d'identité :</label>
-                    <input type="text" id="threeIdNumber" required placeholder="Utilisé uniquement pour vérification">
-                    <small style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Sécurisé et confidentiel</small>
-                </div>
-                <div class="form-group">
-                    <label for="threePaymentMethod">Mode de paiement préféré :</label>
-                    <select id="threePaymentMethod" required style="background: rgba(255,255,255,0.1); color: white; padding: 15px; border-radius: 10px;">
-                        <option value="" style="background: #1a1a2e; color: white;">Choisir votre méthode</option>
-                        <option value="card" style="background: #1a1a2e; color: white;">💳 Carte bancaire</option>
-                        <option value="paypal" style="background: #1a1a2e; color: white;">🔵 PayPal</option>
-                        <option value="transfer" style="background: #1a1a2e; color: white;">🏦 Virement bancaire</option>
-                        <option value="mobile" style="background: #1a1a2e; color: white;">📱 Mobile Money (Afrique)</option>
-                        <option value="crypto" style="background: #1a1a2e; color: white;">₿ Bitcoin/Crypto</option>
-                        <option value="other" style="background: #1a1a2e; color: white;">🌍 Autre (nous nous adapterons)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" required style="width: auto; margin-right: 0.5rem;">
-                        <span style="color: rgba(255,255,255,0.9);">J'accepte le système d'entraide 7 Ensemble (option 3 personnes) et comprends le principe de solidarité mutuelle.</span>
-                    </label>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; font-size: 1.2rem; padding: 20px; background: linear-gradient(45deg, #f093fb, #f5576c);">
-                    ✨ Créer Ma Constellation de 3 Personnes !
-                </button>
-                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
-                    Votre première expérience avec 7 Ensemble commence !
-                </p>
+                <p class="submit-tagline">Bravo, votre aventure commence ici 💕</p>
             </form>
         </div>
     </div>
@@ -469,12 +433,16 @@
 
     <script>
         function showSevenModal() {
-            document.getElementById('sevenModal').classList.add('show');
+            document.getElementById('registrationModal').classList.add('show');
+            // Pre-select 7-person option
+            document.querySelector('input[name="optionType"][value="seven"]').checked = true;
         }
 
 
         function showThreeModal() {
-            document.getElementById('threeModal').classList.add('show');
+            document.getElementById('registrationModal').classList.add('show');
+            // Pre-select 3-person option
+            document.querySelector('input[name="optionType"][value="three"]').checked = true;
         }
 
 
@@ -490,6 +458,67 @@
         }
 
 
+        function submitUnifiedForm(e) {
+            e.preventDefault();
+
+            // Get selected option type
+            const optionType = document.querySelector('input[name="optionType"]:checked')?.value;
+
+            if (!optionType) {
+                alert('⚠️ Veuillez sélectionner une option (3 ou 7 personnes)');
+                return;
+            }
+
+            const targetAmount = optionType === 'seven' ? '1,575,747€' : '7,789€';
+
+            const formData = {
+                type: optionType,
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                country: document.getElementById('country').value,
+                idNumber: 'N/A', // Removed from form per requirements
+                paymentMethod: document.getElementById('paymentMethod').value
+            };
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '⏳ Création de votre constellation...';
+            submitBtn.disabled = true;
+
+            // Send data to backend
+            fetch('submit-form.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const message = optionType === 'seven' ?
+                        `🎉 FÉLICITATIONS ! Bienvenue dans 7 Ensemble (7 Personnes) !\n\n✅ Objectif : ${targetAmount}\n✅ Votre inscription est confirmée\n✅ Email de bienvenue envoyé\n✅ Votre constellation de 7 personnes sera formée sous 24-48h\n✅ Premiers gains dans 7 jours maximum\n\n🚀 Votre voyage vers la liberté financière commence MAINTENANT !` :
+                        `✨ FÉLICITATIONS ! Bienvenue dans 7 Ensemble (3 Personnes) !\n\n✅ Objectif : ${targetAmount}\n✅ Votre inscription est confirmée\n✅ Email de bienvenue envoyé\n✅ Votre constellation de 3 personnes sera formée sous 24-48h\n✅ Premiers gains dans 5 jours maximum\n\n🌟 Parfait pour découvrir le système avant de passer aux 7 personnes !`;
+
+                    alert(message);
+
+                    closeModal('registrationModal');
+                    document.getElementById('registrationForm').reset();
+                } else {
+                    alert('❌ Erreur: ' + (data.message || 'Une erreur est survenue. Veuillez réessayer.'));
+                }
+            })
+            .catch(error => {
+                console.error('Erreur de soumission:', error);
+                alert('❌ Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+
+        // Legacy function for backward compatibility
         function submitForm(e, type) {
             e.preventDefault();
 

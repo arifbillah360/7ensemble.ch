@@ -73,7 +73,7 @@ $cleanData = [
 ];
 
 // Create data directory if it doesn't exist
-$dataDir = __DIR__ . '/data';
+$dataDir = dirname(__DIR__) . '/data';
 if (!file_exists($dataDir)) {
     mkdir($dataDir, 0755, true);
 }

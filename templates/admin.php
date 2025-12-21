@@ -27,7 +27,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Admin - 7 Ensemble</title>
-            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="../css/style.css">
             <style>
                 .login-container {
                     max-width: 400px;
@@ -73,7 +73,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
 }
 
 // Load submissions
-$dataDir = __DIR__ . '/data';
+$dataDir = dirname(__DIR__) . '/data';
 $jsonFile = $dataDir . '/submissions.json';
 $submissions = [];
 
@@ -104,7 +104,7 @@ $threePeople = count(array_filter($submissions, fn($s) => $s['type'] === 'three'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - 7 Ensemble</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         .admin-container {
             max-width: 1400px;
@@ -221,8 +221,8 @@ $threePeople = count(array_filter($submissions, fn($s) => $s['type'] === 'three'
         </div>
 
         <div class="export-buttons">
-            <a href="data/submissions.csv" download class="btn-export">📥 Télécharger CSV</a>
-            <a href="data/submissions.json" download class="btn-export">📥 Télécharger JSON</a>
+            <a href="../data/submissions.csv" download class="btn-export">📥 Télécharger CSV</a>
+            <a href="../data/submissions.json" download class="btn-export">📥 Télécharger JSON</a>
         </div>
 
         <div class="submissions-table">

@@ -51,9 +51,9 @@ This is a **complete, fully functional website** for the 7 Ensemble mutual aid p
 | `index.html` | Main homepage with forms |
 | `7Ensemble Les 7 Tours.html` | Detailed tour breakdown |
 | `7Ensemble Mission.html` | Mission and vision page |
-| `style.css` | All website styling (centralized) |
-| `submit-form.php` | Backend form processor |
-| `admin.php` | Admin dashboard |
+| `css/style.css` | All website styling (centralized) |
+| `templates/submit-form.php` | Backend form processor |
+| `templates/admin.php` | Admin dashboard |
 | `.htaccess` | Security configuration |
 | `.gitignore` | Version control exclusions |
 | `README.md` | This documentation file |
@@ -199,7 +199,7 @@ Les données sont stockées dans:
 3. **Données non sauvegardées**
    - Permissions du dossier `data/` (755 ou 775)
    - Vérifier que le serveur web peut écrire dans ce dossier
-   - Consulter `submit-form.php` pour les erreurs
+   - Consulter `templates/submit-form.php` pour les erreurs
 
 ## Structure des Fichiers
 
@@ -208,15 +208,19 @@ Les données sont stockées dans:
 ├── index.html                      # Page d'accueil
 ├── 7Ensemble Les 7 Tours.html      # Page des tours
 ├── 7Ensemble Mission.html          # Page mission
-├── style.css                       # Styles CSS centralisés
-├── submit-form.php                 # Handler de formulaires
-├── admin.php                       # Panel admin
 ├── .htaccess                       # Configuration Apache
 ├── .gitignore                      # Fichiers ignorés par Git
 ├── README.md                       # Ce fichier
+├── css/                            # Dossier des styles
+│   └── style.css                   # Styles CSS centralisés
+├── images/                         # Dossier des images
+│   └── README.md                   # Guide des images
+├── templates/                      # Dossier des templates PHP
+│   ├── submit-form.php             # Handler de formulaires
+│   └── admin.php                   # Panel admin
 └── data/                           # Dossier de données (créé automatiquement)
-    ├── submissions.json
-    └── submissions.csv
+    ├── submissions.json            # Données JSON
+    └── submissions.csv             # Données CSV
 ```
 
 ## Technologies Utilisées

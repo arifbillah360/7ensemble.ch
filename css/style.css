@@ -301,6 +301,30 @@ nav {
     50% { opacity: 1; }
 }
 
+.constellation-visual h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    color: #4ecdc4;
+}
+
+.constellation-visual p {
+    font-size: 1.3rem;
+    color: #4ecdc4;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+}
+
+.constellation-visual p.subtitle {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: normal;
+    color: rgba(255,255,255,0.9);
+}
+
 .constellation-container {
     position: relative;
     width: 300px;

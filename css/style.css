@@ -559,9 +559,11 @@ nav {
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     margin: 2rem;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 30px;
     max-width: 550px;
+    max-height: 85vh;
+    overflow-y: auto;
     width: 100%;
     position: relative;
     animation: slideUp 0.4s ease-out;
@@ -589,15 +591,15 @@ nav {
 
 .modal-title-glass {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
     color: #4ecdc4;
     text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
     font-weight: bold;
 }
 
 .form-group-glass {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .form-group-glass label {
@@ -611,7 +613,7 @@ nav {
 .input-glass,
 .select-glass {
     width: 100%;
-    padding: 15px 20px;
+    padding: 10px 15px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
     font-size: 1rem;
@@ -1381,7 +1383,7 @@ td {
 
     .input-glass,
     .select-glass {
-        padding: 12px 15px;
+        padding: 8px 12px;
         font-size: 0.95rem;
     }
 

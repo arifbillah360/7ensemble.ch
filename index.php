@@ -2,10 +2,42 @@
 /**
  * Main template file
  *
+ * This template shows hardcoded homepage sections by default.
+ * If Elementor is being used, it will show the_content() instead.
+ *
  * @package 7ensemble
  */
 
 get_header();
+
+// Check if this page is using Elementor
+$is_elementor_page = false;
+if (have_posts()) {
+    the_post();
+    // Check if Elementor is editing or page has Elementor content
+    if (class_exists('\Elementor\Plugin')) {
+        $is_elementor_page = \Elementor\Plugin::$instance->documents->get(get_the_ID())->is_built_with_elementor();
+    }
+    rewind_posts();
+}
+
+// If Elementor is active on this page, show Elementor content
+if ($is_elementor_page) :
+    ?>
+    <main id="primary" class="site-main">
+        <?php
+        while (have_posts()) :
+            the_post();
+            the_content();
+        endwhile;
+        ?>
+    </main>
+    <?php
+    get_footer();
+    return; // Stop execution here
+endif;
+
+// Otherwise, show the hardcoded homepage sections
 ?>
 
 <main>

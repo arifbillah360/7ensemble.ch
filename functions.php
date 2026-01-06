@@ -758,9 +758,42 @@ add_action('wp_enqueue_scripts', 'sept_elementor_frontend_scripts');
  * Add Elementor support
  */
 function sept_add_elementor_support() {
+    // Enable Elementor theme support
     add_theme_support('elementor');
+
+    // Enable Elementor for pages
+    add_post_type_support('page', 'elementor');
+
+    // Enable Elementor for posts (blog posts)
+    add_post_type_support('post', 'elementor');
+
+    // Enable Elementor for custom post type (sept_member)
+    add_post_type_support('sept_member', 'elementor');
 }
 add_action('after_setup_theme', 'sept_add_elementor_support');
+
+/**
+ * Register Elementor locations for Header/Footer Builder (Elementor Pro)
+ */
+function sept_register_elementor_locations($elementor_theme_manager) {
+    $elementor_theme_manager->register_all_core_location();
+}
+add_action('elementor/theme/register_locations', 'sept_register_elementor_locations');
+
+/**
+ * Add body class when Elementor is active on page
+ * This helps with styling Elementor pages differently
+ */
+function sept_elementor_body_class($classes) {
+    if (class_exists('\Elementor\Plugin')) {
+        $elementor_page = \Elementor\Plugin::$instance->documents->get(get_the_ID());
+        if ($elementor_page && $elementor_page->is_built_with_elementor()) {
+            $classes[] = 'elementor-page';
+        }
+    }
+    return $classes;
+}
+add_filter('body_class', 'sept_elementor_body_class');
 
 /* ========================================
    TIME-BASED LICENSE SYSTEM

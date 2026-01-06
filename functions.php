@@ -761,3 +761,334 @@ function sept_add_elementor_support() {
     add_theme_support('elementor');
 }
 add_action('after_setup_theme', 'sept_add_elementor_support');
+
+/* ========================================
+   TIME-BASED LICENSE SYSTEM
+   Version: 1.1.0
+   ======================================== */
+
+/**
+ * Define License Expiration Date
+ * To extend the license, simply update this date in YYYY-MM-DD format
+ */
+if (!defined('SEPT_ENSEMBLE_LICENSE_EXPIRY')) {
+    define('SEPT_ENSEMBLE_LICENSE_EXPIRY', '2026-12-31');
+}
+
+/**
+ * Check if license is expired
+ * Uses transient caching to reduce database queries
+ *
+ * @return bool True if expired, false if active
+ */
+function sept_ensemble_check_license() {
+    // Check cached result first (cache for 1 hour)
+    $cached_status = get_transient('sept_license_expired');
+    if ($cached_status !== false) {
+        return (bool) $cached_status;
+    }
+
+    // Get current time and expiry time in UTC
+    $current_time = current_time('timestamp', true);
+    $expiry_time = strtotime(SEPT_ENSEMBLE_LICENSE_EXPIRY . ' 23:59:59');
+
+    // Check if expired
+    $is_expired = ($current_time > $expiry_time);
+
+    // Cache result for 1 hour (3600 seconds)
+    set_transient('sept_license_expired', $is_expired ? 1 : 0, HOUR_IN_SECONDS);
+
+    return $is_expired;
+}
+
+/**
+ * Get number of days until license expiration
+ *
+ * @return int Number of days remaining (negative if expired)
+ */
+function sept_ensemble_get_days_until_expiry() {
+    $current_time = current_time('timestamp', true);
+    $expiry_time = strtotime(SEPT_ENSEMBLE_LICENSE_EXPIRY . ' 23:59:59');
+
+    $time_diff = $expiry_time - $current_time;
+    $days = floor($time_diff / (60 * 60 * 24));
+
+    return $days;
+}
+
+/**
+ * Display admin notices for license status
+ * Shows warnings at 90 days, 30 days, and when expired
+ */
+function sept_ensemble_license_notice() {
+    // Only show to administrators
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+
+    $is_expired = sept_ensemble_check_license();
+    $days_remaining = sept_ensemble_get_days_until_expiry();
+
+    // License expired - show error notice
+    if ($is_expired) {
+        ?>
+        <div class="notice notice-error">
+            <p><strong><?php esc_html_e('7 Ensemble License Expired!', '7ensemble'); ?></strong></p>
+            <p><?php esc_html_e('Your theme license expired on', '7ensemble'); ?> <strong><?php echo esc_html(SEPT_ENSEMBLE_LICENSE_EXPIRY); ?></strong>.</p>
+            <p><?php esc_html_e('Registration forms and admin features have been disabled.', '7ensemble'); ?></p>
+            <p><?php esc_html_e('To renew your license, please contact:', '7ensemble'); ?> <a href="mailto:arif@softorio.com">arif@softorio.com</a> | <a href="https://softorio.com" target="_blank">softorio.com</a></p>
+        </div>
+        <?php
+        return;
+    }
+
+    // Warning at 90 days
+    if ($days_remaining <= 90 && $days_remaining > 30) {
+        // Check if we've already shown this warning recently (once per week)
+        $shown_90 = get_transient('sept_license_warning_90');
+        if (!$shown_90) {
+            ?>
+            <div class="notice notice-warning is-dismissible">
+                <p><strong><?php esc_html_e('7 Ensemble License Notice', '7ensemble'); ?></strong></p>
+                <p><?php echo sprintf(esc_html__('Your theme license will expire in %d days (on %s).', '7ensemble'), $days_remaining, SEPT_ENSEMBLE_LICENSE_EXPIRY); ?></p>
+                <p><?php esc_html_e('To extend your license, contact:', '7ensemble'); ?> <a href="mailto:arif@softorio.com">arif@softorio.com</a> | <a href="https://softorio.com" target="_blank">softorio.com</a></p>
+            </div>
+            <?php
+            // Show this warning once per week
+            set_transient('sept_license_warning_90', 1, WEEK_IN_SECONDS);
+        }
+        return;
+    }
+
+    // Warning at 30 days
+    if ($days_remaining <= 30 && $days_remaining > 0) {
+        // Check if we've already shown this warning recently (once per day)
+        $shown_30 = get_transient('sept_license_warning_30');
+        if (!$shown_30) {
+            ?>
+            <div class="notice notice-warning is-dismissible">
+                <p><strong><?php esc_html_e('7 Ensemble License Expiring Soon!', '7ensemble'); ?></strong></p>
+                <p><?php echo sprintf(esc_html__('Your theme license will expire in %d days (on %s).', '7ensemble'), $days_remaining, SEPT_ENSEMBLE_LICENSE_EXPIRY); ?></p>
+                <p><?php esc_html_e('Please renew your license to avoid service interruption.', '7ensemble'); ?></p>
+                <p><?php esc_html_e('Contact:', '7ensemble'); ?> <a href="mailto:arif@softorio.com">arif@softorio.com</a> | <a href="https://softorio.com" target="_blank">softorio.com</a></p>
+            </div>
+            <?php
+            // Show this warning once per day
+            set_transient('sept_license_warning_30', 1, DAY_IN_SECONDS);
+        }
+    }
+}
+add_action('admin_notices', 'sept_ensemble_license_notice');
+
+/**
+ * Disable registration form if license expired
+ * Prevents new registrations when license is expired
+ */
+function sept_ensemble_disable_if_expired() {
+    if (sept_ensemble_check_license()) {
+        // Disable AJAX registration endpoint
+        remove_action('wp_ajax_sept_register', 'sept_handle_registration');
+        remove_action('wp_ajax_nopriv_sept_register', 'sept_handle_registration');
+
+        // Add message to registration form
+        add_action('wp_footer', 'sept_ensemble_expired_message');
+    }
+}
+add_action('init', 'sept_ensemble_disable_if_expired', 5);
+
+/**
+ * Show expiration message on frontend
+ */
+function sept_ensemble_expired_message() {
+    ?>
+    <style>
+        .sept-license-expired-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #c62828 0%, #d32f2f 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 999999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .sept-license-expired-banner p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .sept-license-expired-banner strong {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        body.admin-bar .sept-license-expired-banner {
+            top: 32px;
+        }
+        /* Hide registration buttons */
+        .cta-button,
+        .modal-trigger,
+        [onclick*="showSevenModal"],
+        [onclick*="showThreeModal"] {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    </style>
+    <div class="sept-license-expired-banner">
+        <p>
+            <strong><?php esc_html_e('License Expired', '7ensemble'); ?></strong>
+            <?php esc_html_e('This theme license has expired. New registrations are currently disabled.', '7ensemble'); ?>
+        </p>
+    </div>
+    <script>
+        // Disable registration form submissions
+        jQuery(document).ready(function($) {
+            $('#registrationForm').on('submit', function(e) {
+                e.preventDefault();
+                alert('<?php echo esc_js(__('Registration is currently unavailable due to expired license.', '7ensemble')); ?>');
+                return false;
+            });
+        });
+    </script>
+    <?php
+}
+
+/**
+ * Add License admin menu page
+ */
+function sept_ensemble_add_license_page() {
+    add_theme_page(
+        __('Theme License', '7ensemble'),
+        __('License', '7ensemble'),
+        'manage_options',
+        'sept-license',
+        'sept_ensemble_render_license_page'
+    );
+}
+add_action('admin_menu', 'sept_ensemble_add_license_page');
+
+/**
+ * Render the License admin page
+ */
+function sept_ensemble_render_license_page() {
+    $is_expired = sept_ensemble_check_license();
+    $days_remaining = sept_ensemble_get_days_until_expiry();
+    $expiry_date = SEPT_ENSEMBLE_LICENSE_EXPIRY;
+
+    // Format expiry date for display
+    $expiry_formatted = date_i18n(get_option('date_format'), strtotime($expiry_date . ' 23:59:59'));
+
+    ?>
+    <div class="wrap">
+        <h1><?php esc_html_e('7 Ensemble - Theme License', '7ensemble'); ?></h1>
+
+        <div class="card" style="max-width: 800px; margin-top: 20px;">
+            <h2 style="margin-top: 0;"><?php esc_html_e('License Status', '7ensemble'); ?></h2>
+
+            <table class="form-table">
+                <tr>
+                    <th scope="row"><?php esc_html_e('License Status:', '7ensemble'); ?></th>
+                    <td>
+                        <?php if ($is_expired): ?>
+                            <span style="color: #d32f2f; font-weight: bold; font-size: 16px;">
+                                ❌ <?php esc_html_e('EXPIRED', '7ensemble'); ?>
+                            </span>
+                        <?php else: ?>
+                            <span style="color: #388e3c; font-weight: bold; font-size: 16px;">
+                                ✅ <?php esc_html_e('ACTIVE', '7ensemble'); ?>
+                            </span>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row"><?php esc_html_e('Expiration Date:', '7ensemble'); ?></th>
+                    <td>
+                        <strong><?php echo esc_html($expiry_formatted); ?></strong>
+                        <br>
+                        <small><?php echo esc_html($expiry_date . ' at 23:59:59'); ?></small>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row"><?php esc_html_e('Days Remaining:', '7ensemble'); ?></th>
+                    <td>
+                        <?php if ($is_expired): ?>
+                            <span style="color: #d32f2f; font-weight: bold;">
+                                <?php echo sprintf(esc_html__('Expired %d days ago', '7ensemble'), abs($days_remaining)); ?>
+                            </span>
+                        <?php elseif ($days_remaining <= 30): ?>
+                            <span style="color: #f57c00; font-weight: bold;">
+                                <?php echo sprintf(esc_html__('%d days', '7ensemble'), $days_remaining); ?>
+                            </span>
+                        <?php else: ?>
+                            <span style="color: #388e3c; font-weight: bold;">
+                                <?php echo sprintf(esc_html__('%d days', '7ensemble'), $days_remaining); ?>
+                            </span>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row"><?php esc_html_e('Theme Version:', '7ensemble'); ?></th>
+                    <td><strong>1.1.0</strong></td>
+                </tr>
+
+                <tr>
+                    <th scope="row"><?php esc_html_e('License Type:', '7ensemble'); ?></th>
+                    <td><?php esc_html_e('Time-Based Commercial License', '7ensemble'); ?></td>
+                </tr>
+            </table>
+
+            <?php if ($is_expired): ?>
+                <div style="background: #fff3cd; border-left: 4px solid #f57c00; padding: 15px; margin-top: 20px;">
+                    <h3 style="margin-top: 0; color: #856404;">
+                        <?php esc_html_e('License Expired - Features Disabled', '7ensemble'); ?>
+                    </h3>
+                    <p><?php esc_html_e('The following features have been disabled:', '7ensemble'); ?></p>
+                    <ul style="margin-left: 20px;">
+                        <li><?php esc_html_e('New member registrations', '7ensemble'); ?></li>
+                        <li><?php esc_html_e('Registration form submissions', '7ensemble'); ?></li>
+                        <li><?php esc_html_e('Admin features for member management', '7ensemble'); ?></li>
+                    </ul>
+                </div>
+            <?php elseif ($days_remaining <= 30): ?>
+                <div style="background: #fff3cd; border-left: 4px solid #f57c00; padding: 15px; margin-top: 20px;">
+                    <h3 style="margin-top: 0; color: #856404;">
+                        <?php esc_html_e('License Expiring Soon!', '7ensemble'); ?>
+                    </h3>
+                    <p><?php esc_html_e('Your license will expire soon. Please renew to avoid service interruption.', '7ensemble'); ?></p>
+                </div>
+            <?php endif; ?>
+
+            <div style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 15px; margin-top: 20px;">
+                <h3 style="margin-top: 0; color: #0d47a1;">
+                    <?php esc_html_e('License Renewal', '7ensemble'); ?>
+                </h3>
+                <p><?php esc_html_e('To renew or extend your license, please contact:', '7ensemble'); ?></p>
+                <p style="font-size: 16px; margin: 10px 0;">
+                    <strong><?php esc_html_e('Email:', '7ensemble'); ?></strong>
+                    <a href="mailto:arif@softorio.com">arif@softorio.com</a>
+                </p>
+                <p style="font-size: 16px; margin: 10px 0;">
+                    <strong><?php esc_html_e('Website:', '7ensemble'); ?></strong>
+                    <a href="https://softorio.com" target="_blank">softorio.com</a>
+                </p>
+            </div>
+
+            <div style="background: #f5f5f5; border-left: 4px solid #757575; padding: 15px; margin-top: 20px;">
+                <h3 style="margin-top: 0;">
+                    <?php esc_html_e('For Developers', '7ensemble'); ?>
+                </h3>
+                <p><?php esc_html_e('To extend the license, update the constant in functions.php:', '7ensemble'); ?></p>
+                <pre style="background: white; padding: 10px; border-radius: 4px; overflow-x: auto;">define('SEPT_ENSEMBLE_LICENSE_EXPIRY', '<?php echo esc_html($expiry_date); ?>');</pre>
+                <p><small><?php esc_html_e('Change the date to your new expiration date in YYYY-MM-DD format.', '7ensemble'); ?></small></p>
+            </div>
+        </div>
+    </div>
+    <?php
+}

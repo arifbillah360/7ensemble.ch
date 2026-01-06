@@ -2,7 +2,7 @@
 
 A complete, production-ready WordPress theme for the 7 Ensemble financial mutual aid platform with full Elementor integration, constellation logic, AJAX registration system, and automated email notifications.
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
 ![WordPress](https://img.shields.io/badge/WordPress-6.0+-green.svg)
 ![PHP](https://img.shields.io/badge/PHP-7.4+-purple.svg)
 ![Elementor](https://img.shields.io/badge/Elementor-3.0+-pink.svg)
@@ -211,7 +211,54 @@ This theme provides a complete solution with:
 
 ## 📄 License
 
-GNU General Public License v2 or later
+### Time-Based Commercial License
+
+This theme is licensed until **December 31, 2026 at 23:59:59**.
+
+**License Type:** Time-Based Commercial License
+**Version:** 1.1.0
+**Valid Until:** December 31, 2026
+**Developer:** Softorio (arif@softorio.com)
+
+### Features After Expiration
+
+When the license expires, the following features will be automatically disabled:
+- New member registrations
+- Registration form submissions (both inline and modal)
+- Admin member management features
+- Email notifications for new registrations
+
+The site will continue to display content, but registration functionality will be disabled until the license is renewed.
+
+### License Warnings
+
+Administrators will receive warnings:
+- **90 days before expiration** - Weekly notice
+- **30 days before expiration** - Daily notice
+- **After expiration** - Persistent error notice with contact information
+
+### Renewal & Extension
+
+To renew or extend your license, please contact:
+
+- **Email:** arif@softorio.com
+- **Website:** https://softorio.com
+
+### For Developers
+
+To extend the license, simply update the constant in `functions.php`:
+
+```php
+define('SEPT_ENSEMBLE_LICENSE_EXPIRY', '2026-12-31');
+```
+
+Change the date to your new expiration date in YYYY-MM-DD format (e.g., '2027-12-31').
+
+### Admin License Page
+
+View license status, expiration date, and renewal information:
+- WordPress Admin → Appearance → License
+- Shows: Status (Active/Expired), Days Remaining, Expiration Date, Contact Info
 
 ---
 

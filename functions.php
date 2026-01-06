@@ -72,8 +72,8 @@ function sept_register_member_post_type() {
     $args = array(
         'labels' => $labels,
         'public' => false,
-        'show_ui' => true,
-        'show_in_menu' => true,
+        'show_ui' => false, // Hidden from admin dashboard
+        'show_in_menu' => false, // Hidden from admin menu
         'capability_type' => 'post',
         'hierarchical' => false,
         'supports' => array('title'),
@@ -445,15 +445,16 @@ function sept_send_constellation_complete_email($center_id, $member_ids) {
 
 /**
  * Admin Dashboard Widget
+ * DISABLED - Hidden from dashboard
  */
-function sept_add_dashboard_widget() {
-    wp_add_dashboard_widget(
-        'sept_dashboard_widget',
-        esc_html__('7 Ensemble Statistics', '7ensemble'),
-        'sept_dashboard_widget_content'
-    );
-}
-add_action('wp_dashboard_setup', 'sept_add_dashboard_widget');
+// function sept_add_dashboard_widget() {
+//     wp_add_dashboard_widget(
+//         'sept_dashboard_widget',
+//         esc_html__('7 Ensemble Statistics', '7ensemble'),
+//         'sept_dashboard_widget_content'
+//     );
+// }
+// add_action('wp_dashboard_setup', 'sept_add_dashboard_widget');
 
 /**
  * Dashboard Widget Content
@@ -575,18 +576,19 @@ function sept_dashboard_widget_content() {
 
 /**
  * Add Custom Meta Boxes for Member Details
+ * DISABLED - Hidden from dashboard
  */
-function sept_add_member_meta_boxes() {
-    add_meta_box(
-        'sept_member_details',
-        esc_html__('Member Details', '7ensemble'),
-        'sept_member_details_callback',
-        'sept_member',
-        'normal',
-        'high'
-    );
-}
-add_action('add_meta_boxes', 'sept_add_member_meta_boxes');
+// function sept_add_member_meta_boxes() {
+//     add_meta_box(
+//         'sept_member_details',
+//         esc_html__('Member Details', '7ensemble'),
+//         'sept_member_details_callback',
+//         'sept_member',
+//         'normal',
+//         'high'
+//     );
+// }
+// add_action('add_meta_boxes', 'sept_add_member_meta_boxes');
 
 /**
  * Meta Box Callback: Member Details

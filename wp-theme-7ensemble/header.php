@@ -8,6 +8,17 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<?php
+// Check if Elementor Pro Header is active
+$elementor_header_enabled = false;
+if (function_exists('elementor_theme_do_location')) {
+    $elementor_header_enabled = elementor_theme_do_location('header');
+}
+
+// If no Elementor header, show default header
+if (!$elementor_header_enabled) :
+?>
+
 <!-- Promotional Banner -->
 <div class="promotional-banner">
     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/banner.png" alt="<?php esc_attr_e('7 Ensemble - Entraide et Solidarité', '7ensemble'); ?>" class="banner-image">
@@ -27,6 +38,8 @@
         <button class="btn-primary" onclick="showSevenModal()"><?php esc_html_e('Rejoindre la révolution', '7ensemble'); ?></button>
     </nav>
 </header>
+
+<?php endif; ?>
 <?php
 /**
  * Default fallback menu

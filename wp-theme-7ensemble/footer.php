@@ -1,3 +1,14 @@
+<?php
+// Check if Elementor Pro Footer is active
+$elementor_footer_enabled = false;
+if (function_exists('elementor_theme_do_location')) {
+    $elementor_footer_enabled = elementor_theme_do_location('footer');
+}
+
+// If no Elementor footer, show default footer
+if (!$elementor_footer_enabled) :
+?>
+
 <!-- Modal d'inscription unifié -->
 <div id="registrationModal" class="modal modal-glassmorphic">
     <div class="modal-content-glass">
@@ -80,6 +91,8 @@
         </form>
     </div>
 </div>
+
+<?php endif; // End Elementor footer check ?>
 
 <?php wp_footer(); ?>
 

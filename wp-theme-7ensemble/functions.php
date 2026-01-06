@@ -681,3 +681,83 @@ function sept_member_details_callback($post) {
     </div>
     <?php
 }
+
+/**
+ * =====================================================
+ * ELEMENTOR INTEGRATION
+ * =====================================================
+ */
+
+/**
+ * Check if Elementor is installed and activated
+ */
+function sept_is_elementor_active() {
+    return did_action('elementor/loaded');
+}
+
+/**
+ * Register Elementor Widget Category
+ */
+function sept_register_elementor_category($elements_manager) {
+    $elements_manager->add_category(
+        '7ensemble',
+        array(
+            'title' => esc_html__('7 Ensemble', '7ensemble'),
+            'icon' => 'fa fa-plug',
+        )
+    );
+}
+add_action('elementor/elements/categories_registered', 'sept_register_elementor_category');
+
+/**
+ * Register Custom Elementor Widgets
+ */
+function sept_register_elementor_widgets($widgets_manager) {
+    // Include widget files
+    require_once get_template_directory() . '/elementor-widgets/hero-widget.php';
+    require_once get_template_directory() . '/elementor-widgets/constellation-widget.php';
+    require_once get_template_directory() . '/elementor-widgets/principe-widget.php';
+    require_once get_template_directory() . '/elementor-widgets/tours-widget.php';
+    require_once get_template_directory() . '/elementor-widgets/registration-form-widget.php';
+    require_once get_template_directory() . '/elementor-widgets/stats-widget.php';
+
+    // Register widgets
+    $widgets_manager->register(new \Elementor_Seven_Ensemble_Hero_Widget());
+    $widgets_manager->register(new \Elementor_Seven_Ensemble_Constellation_Widget());
+    $widgets_manager->register(new \Elementor_Seven_Ensemble_Principe_Widget());
+    $widgets_manager->register(new \Elementor_Seven_Ensemble_Tours_Widget());
+    $widgets_manager->register(new \Elementor_Seven_Ensemble_Registration_Form_Widget());
+    $widgets_manager->register(new \Elementor_Seven_Ensemble_Stats_Widget());
+}
+add_action('elementor/widgets/register', 'sept_register_elementor_widgets');
+
+/**
+ * Enqueue Elementor-specific styles and scripts
+ */
+function sept_elementor_frontend_scripts() {
+    if (sept_is_elementor_active()) {
+        wp_enqueue_style(
+            'sept-elementor-frontend',
+            get_template_directory_uri() . '/assets/css/elementor-frontend.css',
+            array(),
+            '1.0.0'
+        );
+
+        wp_enqueue_script(
+            'sept-elementor-frontend',
+            get_template_directory_uri() . '/assets/js/elementor-frontend.js',
+            array('jquery', 'elementor-frontend'),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'sept_elementor_frontend_scripts');
+
+/**
+ * Add Elementor support
+ */
+function sept_add_elementor_support() {
+    add_theme_support('elementor');
+}
+add_action('after_setup_theme', 'sept_add_elementor_support');

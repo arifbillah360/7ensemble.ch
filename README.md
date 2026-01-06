@@ -1,241 +1,269 @@
-# 7 Ensemble - Site Web
+# 7 Ensemble WordPress Theme
 
-Site web officiel pour 7 Ensemble - Plateforme d'entraide révolutionnaire.
+A complete, production-ready WordPress theme for the 7 Ensemble financial mutual aid platform with full Elementor integration, constellation logic, AJAX registration system, and automated email notifications.
 
-## 🎯 What I Built
-
-This is a **complete, fully functional website** for the 7 Ensemble mutual aid platform. Here's what was created from scratch:
-
-### ✨ What This Project Does
-7 Ensemble is a mutual aid platform where members help each other financially through a constellation system. Starting with just 21€, participants can potentially reach up to 1,575,747€ through the 7-person option, or 7,789€ through the 3-person option.
-
-### 📦 Complete Package Includes:
-
-**Frontend (What Visitors See):**
-- 🏠 **Beautiful Homepage** with animations and interactive elements
-- 📊 **Detailed Tours Page** showing exactly how the system works
-- 💝 **Mission Page** explaining the revolutionary vision
-- 📱 **Fully Responsive** - works on phones, tablets, and desktops
-- ✨ **Modern Animations** - floating confetti, starry backgrounds, smooth transitions
-- 🎨 **Centralized CSS** - all styles in one file for easy customization
-
-**Backend (The Engine):**
-- 📝 **Functional Registration Forms** - actually saves data!
-- 💾 **PHP Backend** - processes and stores all submissions
-- 🔒 **Secure Data Storage** - JSON and CSV formats
-- 👨‍💼 **Admin Panel** - password-protected dashboard to view all registrations
-- 📊 **Real-time Statistics** - see totals, 7-person vs 3-person options
-- 📥 **Data Export** - download submissions as CSV or JSON files
-
-**Security & Configuration:**
-- 🛡️ **Security Measures** - input validation, data sanitization, protected directories
-- 🔐 **Admin Authentication** - password-protected admin area
-- 📋 **Complete Documentation** - setup guide, troubleshooting, and more
-- ⚙️ **Apache Configuration** - .htaccess for security
-- 🚫 **Git Ignore** - keeps sensitive data out of version control
-
-### 🎨 Key Features Built:
-
-1. **Interactive Constellation Visual** - Animated diagram showing how members connect
-2. **Two Registration Options** - 3-person (beginner) and 7-person (advanced)
-3. **Modal Popup Forms** - Beautiful overlays for registration
-4. **Live Form Validation** - Checks data before submission
-5. **Success Messages** - Confirmation when registration completes
-6. **Admin Dashboard** - View, filter, and export all registrations
-7. **Responsive Navigation** - Works across all pages seamlessly
-
-### 📁 Files Created:
-
-| File | Purpose |
-|------|---------|
-| `index.html` | Main homepage with forms |
-| `7Ensemble Les 7 Tours.html` | Detailed tour breakdown |
-| `7Ensemble Mission.html` | Mission and vision page |
-| `css/style.css` | All website styling (centralized) |
-| `templates/submit-form.php` | Backend form processor |
-| `templates/admin.php` | Admin dashboard |
-| `.htaccess` | Security configuration |
-| `.gitignore` | Version control exclusions |
-| `README.md` | This documentation file |
-
-### 🚀 Ready to Deploy!
-This website is **production-ready** and can be deployed to any web hosting that supports PHP. Just:
-1. Upload files to your server
-2. Create the `data/` folder
-3. Change the admin password
-4. Start accepting registrations!
+![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
+![WordPress](https://img.shields.io/badge/WordPress-6.0+-green.svg)
+![PHP](https://img.shields.io/badge/PHP-7.4+-purple.svg)
+![Elementor](https://img.shields.io/badge/Elementor-3.0+-pink.svg)
 
 ---
 
-## Structure du Site
+## 🎯 Overview
 
-### Pages Principales
+7 Ensemble is a revolutionary mutual aid platform where members help each other financially through a constellation system. Starting with just 21€, participants can potentially reach up to 1,575,747€ through the 7-person option, or 7,789€ through the 3-person option.
 
-1. **index.html** - Page d'accueil
-   - Section héro avec présentation
-   - Explication du principe 7 Ensemble
-   - Visualisation de la constellation
-   - Aperçu des 7 tours
-   - Section urgence avec formulaires d'inscription
+This theme provides a complete solution with:
+- ✅ **Full WordPress Theme** - Professional, production-ready
+- ✅ **Elementor Integration** - 6 custom drag-and-drop widgets
+- ✅ **AJAX Registration** - Real-time form submission without page reload
+- ✅ **Constellation Logic** - Automatic member assignment and tracking
+- ✅ **Email Notifications** - Welcome emails and completion alerts
+- ✅ **Admin Dashboard** - Real-time statistics and member management
+- ✅ **Security** - Nonce verification, sanitization, XSS protection
+- ✅ **Responsive Design** - Works on all devices
 
-2. **7Ensemble Les 7 Tours.html** - Détails des tours
-   - Tableaux détaillés pour option 3 personnes
-   - Tableaux détaillés pour option 7 personnes
-   - Explication du système de progression
+---
 
-3. **7Ensemble Mission.html** - Mission et vision
-   - Message du créateur
-   - Objectifs révolutionnaires
-   - Impact social
+## 📦 Features
 
-### Système de Formulaires
+### Core Functionality
 
-#### Fonctionnalités
-- Formulaires d'inscription pour options 3 et 7 personnes
-- Validation côté client et serveur
-- Stockage sécurisé des données
-- Export CSV et JSON
+- **AJAX Registration System** - No page reload, instant feedback
+- **Constellation Assignment** - Automatic assignment to incomplete constellations
+- **Custom Post Type** (`sept_member`) - Comprehensive meta fields
+- **Email Notifications** - Welcome emails and constellation completion alerts
+- **Admin Dashboard Widget** - Real-time statistics
+- **Animated Constellation** - Interactive member visualization
+- **Two Options** - 3-person (7,789€) or 7-person (1,575,747€)
 
-#### Fichiers Backend
-- **submit-form.php** - Traite les soumissions de formulaires
-- **admin.php** - Panel d'administration pour voir les inscriptions
-- **data/** - Dossier contenant les données (protégé)
+### Elementor Integration
 
-## Installation
+- **6 Custom Widgets**:
+  1. **Hero** - Main header with CTAs
+  2. **Constellation** - Animated member visualization with image uploads
+  3. **Principe** - Three-card explanation
+  4. **Tours** - 7-level progression display
+  5. **Registration Form** - Full AJAX functionality in Elementor
+  6. **Stats** - Statistics display
+- **Live Preview** - See changes instantly in Elementor editor
+- **Drag & Drop** - Easy page building
+- **Header/Footer Builder** - Full Elementor Pro support
+- **Customizable** - All colors, text, images editable
 
-### Prérequis
-- Serveur web (Apache/Nginx)
-- PHP 7.4 ou supérieur
-- Permissions d'écriture pour le dossier `data/`
+---
 
-### Configuration
+## 🚀 Quick Start
 
-1. **Cloner ou télécharger les fichiers**
+### Installation (5 Minutes)
+
+1. **Clone or Download Repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/arifbillah360/7ensemble.ch.git
    cd 7ensemble.ch
    ```
 
-2. **Créer le dossier de données**
-   ```bash
-   mkdir -p data
-   chmod 755 data
-   ```
+2. **Install in WordPress**:
+   - Zip the entire directory OR
+   - Upload directly to `/wp-content/themes/7ensemble/`
 
-3. **Configurer le serveur web**
-   - Pointer le document root vers le dossier du site
-   - S'assurer que le fichier `.htaccess` est activé
-   - Configurer PHP avec les permissions appropriées
+3. **Activate Theme**:
+   - WordPress Admin → Appearance → Themes
+   - Click **Activate** on "7 Ensemble"
 
-4. **Sécurité IMPORTANTE**
-   - Changer le mot de passe admin dans `admin.php`
-   - Ligne 11: `$ADMIN_PASSWORD = 'admin123';` → Changer `admin123`
-   - Recommandé: Utiliser un système d'authentification plus robuste
+4. **Install Elementor** (Recommended):
+   - Plugins → Add New → Search "Elementor"
+   - Install & Activate
 
-5. **Configuration Email (Optionnel)**
-   - Décommenter la fonction `sendConfirmationEmail()` dans `submit-form.php`
-   - Configurer le serveur SMTP sur votre hébergement
+5. **Test**:
+   - Visit your site
+   - Click "Rejoindre la révolution"
+   - Fill out and submit the form
+   - Check WordPress admin for new member!
 
-## Utilisation
+---
 
-### Accès Public
-- **Page d'accueil**: `https://votredomaine.com/`
-- **Les 7 Tours**: `https://votredomaine.com/7Ensemble Les 7 Tours.html`
-- **Mission**: `https://votredomaine.com/7Ensemble Mission.html`
+## 📁 Repository Structure
 
-### Panel Admin
-- **URL**: `https://votredomaine.com/admin.php`
-- **Mot de passe par défaut**: `admin123` (À CHANGER!)
-
-### Fonctionnalités Admin
-- Voir toutes les inscriptions
-- Statistiques en temps réel
-- Export des données (CSV/JSON)
-- Filtrage par type d'option
-
-## Sécurité
-
-### Protections Implémentées
-- ✅ Validation et sanitisation des entrées
-- ✅ Protection CSRF via formulaires
-- ✅ Dossier `data/` protégé par `.htaccess`
-- ✅ Fichiers sensibles masqués
-- ✅ Logs d'erreurs désactivés en production
-
-### Recommandations
-- [ ] Changer le mot de passe admin
-- [ ] Activer HTTPS/SSL
-- [ ] Configurer des sauvegardes régulières
-- [ ] Mettre en place un système de limitation de taux
-- [ ] Ajouter une authentification à deux facteurs pour l'admin
-
-## Maintenance
-
-### Sauvegardes
-Les données sont stockées dans:
-- `data/submissions.json` - Format JSON complet
-- `data/submissions.csv` - Format CSV pour Excel
-
-**Important**: Sauvegarder régulièrement le dossier `data/`
-
-### Logs
-- Erreurs PHP: `/tmp/php_errors.log` (configurable)
-- Logs serveur: Vérifier les logs Apache/Nginx
-
-## Support Technique
-
-### Problèmes Courants
-
-1. **Formulaire ne fonctionne pas**
-   - Vérifier que PHP est installé et configuré
-   - Vérifier les permissions du dossier `data/`
-   - Consulter les logs d'erreur
-
-2. **Admin Panel inaccessible**
-   - Vérifier que les sessions PHP sont activées
-   - S'assurer que le mot de passe est correct
-   - Vérifier les logs PHP
-
-3. **Données non sauvegardées**
-   - Permissions du dossier `data/` (755 ou 775)
-   - Vérifier que le serveur web peut écrire dans ce dossier
-   - Consulter `templates/submit-form.php` pour les erreurs
-
-## Structure des Fichiers
+**This repository IS the WordPress theme.** After cloning, you can install it directly into WordPress.
 
 ```
-7ensemble.ch/
-├── index.html                      # Page d'accueil
-├── 7Ensemble Les 7 Tours.html      # Page des tours
-├── 7Ensemble Mission.html          # Page mission
-├── .htaccess                       # Configuration Apache
-├── .gitignore                      # Fichiers ignorés par Git
-├── README.md                       # Ce fichier
-├── css/                            # Dossier des styles
-│   └── style.css                   # Styles CSS centralisés
-├── images/                         # Dossier des images
-│   └── README.md                   # Guide des images
-├── templates/                      # Dossier des templates PHP
-│   ├── submit-form.php             # Handler de formulaires
-│   └── admin.php                   # Panel admin
-└── data/                           # Dossier de données (créé automatiquement)
-    ├── submissions.json            # Données JSON
-    └── submissions.csv             # Données CSV
+7ensemble/ (repository root = WordPress theme)
+├── assets/
+│   ├── css/              # Stylesheets
+│   ├── js/               # JavaScript files
+│   └── images/           # Theme images
+├── elementor-widgets/    # Custom Elementor widgets
+├── functions.php         # Theme functionality
+├── header.php            # Header template
+├── footer.php            # Footer template
+├── index.php             # Main template
+├── style.css             # Theme stylesheet
+├── ELEMENTOR-GUIDE.md    # Complete Elementor documentation
+└── README.md             # This file
 ```
 
-## Technologies Utilisées
+---
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Backend**: PHP 7.4+
-- **Stockage**: JSON & CSV
-- **Serveur**: Apache/Nginx
+## 🎨 Using with Elementor
 
-## Licence
+### Quick Start
 
-© 2025 7 Ensemble. Tous droits réservés.
+1. Create page → Edit with Elementor
+2. Find "7 Ensemble" category in widgets
+3. Drag widgets onto page
+4. Customize and publish!
 
-## Contact
+### Available Widgets
 
-Pour toute question ou support:
-- Email: support@7ensemble.ch
-- Website: https://7ensemble.ch
+| Widget | Purpose | Key Features |
+|--------|---------|--------------|
+| **Hero** | Main header | Editable title, amount, CTAs |
+| **Constellation** | Network visual | Upload 7 member images, animations |
+| **Principe** | Explanation cards | 3 cards with icons, amounts |
+| **Tours** | 7 levels | Individual control per tour |
+| **Registration Form** | Signup | AJAX, inline or modal, full security |
+| **Stats** | Statistics | 3 customizable stats |
+
+**📘 See [`ELEMENTOR-GUIDE.md`](ELEMENTOR-GUIDE.md) for complete documentation.**
+
+---
+
+## ⚙️ Constellation Logic
+
+### How It Works
+
+1. User registers → AJAX form submission
+2. Backend validates all fields
+3. Member post created
+4. Constellation assignment:
+   - If incomplete exists → Add member
+   - If none exists → Make center of new constellation
+5. Status updated (pending/incomplete/complete)
+6. Email notifications sent
+
+---
+
+## 🔒 Security
+
+- ✅ Nonce verification
+- ✅ Input sanitization
+- ✅ Output escaping
+- ✅ Email validation
+- ✅ XSS protection
+- ✅ SQL injection prevention
+
+---
+
+## 📧 Email System
+
+- **Welcome Email** - Sent on registration
+- **Completion Email** - Sent when constellation is full
+- **SMTP Required** - Configure via plugin for production
+
+---
+
+## 📊 Admin Dashboard
+
+- View all members: **7 Ensemble Members** menu
+- Dashboard widget with real-time stats
+- Member details with constellation info
+- Registration tracking
+
+---
+
+## 🛠️ Requirements
+
+- **WordPress**: 6.0+
+- **PHP**: 7.4+
+- **Elementor**: 3.0+ (optional but recommended)
+- **Elementor Pro**: 3.0+ (optional, for Header/Footer builder)
+
+---
+
+## 🐛 Troubleshooting
+
+**Widgets not showing?**
+- Regenerate CSS: Elementor → Tools → Regenerate CSS
+
+**AJAX not working?**
+- Check console (F12) for errors
+- Verify SMTP is configured
+
+**Emails not sending?**
+- Install SMTP plugin
+- Configure settings
+
+**Full troubleshooting in [`ELEMENTOR-GUIDE.md`](ELEMENTOR-GUIDE.md)**
+
+---
+
+## 📚 Documentation
+
+- **README.md** - This file (overview)
+- **ELEMENTOR-GUIDE.md** - Complete Elementor guide
+  - Widget usage
+  - Customization
+  - Troubleshooting
+  - Best practices
+
+---
+
+## 📄 License
+
+### Time-Based Commercial License
+
+This theme is licensed until **December 31, 2026 at 23:59:59**.
+
+**License Type:** Time-Based Commercial License
+**Version:** 1.1.0
+**Valid Until:** December 31, 2026
+**Developer:** Softorio (arif@softorio.com)
+
+### Features After Expiration
+
+When the license expires, the following features will be automatically disabled:
+- New member registrations
+- Registration form submissions (both inline and modal)
+- Admin member management features
+- Email notifications for new registrations
+
+The site will continue to display content, but registration functionality will be disabled until the license is renewed.
+
+### License Warnings
+
+Administrators will receive warnings:
+- **90 days before expiration** - Weekly notice
+- **30 days before expiration** - Daily notice
+- **After expiration** - Persistent error notice with contact information
+
+### Renewal & Extension
+
+To renew or extend your license, please contact:
+
+- **Email:** arif@softorio.com
+- **Website:** https://softorio.com
+
+### For Developers
+
+To extend the license, simply update the constant in `functions.php`:
+
+```php
+define('SEPT_ENSEMBLE_LICENSE_EXPIRY', '2026-12-31');
+```
+
+Change the date to your new expiration date in YYYY-MM-DD format (e.g., '2027-12-31').
+
+### Admin License Page
+
+View license status, expiration date, and renewal information:
+- WordPress Admin → Appearance → License
+- Shows: Status (Active/Expired), Days Remaining, Expiration Date, Contact Info
+
+---
+
+## 🎉 Ready to Launch!
+
+This theme is production-ready. Install, configure SMTP, and start accepting registrations!
+
+For detailed Elementor usage and advanced features, see **[ELEMENTOR-GUIDE.md](ELEMENTOR-GUIDE.md)**.

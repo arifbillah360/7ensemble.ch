@@ -1,26 +1,86 @@
-# 7 Ensemble - Git Ignore File
+# WordPress Theme - 7 Ensemble
 
-# Data directory containing form submissions
-data/
-*.csv
-*.json
+# WordPress Core (if theme is in a WordPress installation)
+wp-admin/
+wp-includes/
+wp-content/plugins/
+wp-content/mu-plugins/
+wp-content/upgrade/
+wp-content/uploads/
+wp-config.php
 
-# PHP error logs
-php_errors.log
+# Database
+*.sql
+*.sql.gz
+*.sqlite
+
+# Logs
+*.log
 error_log
+debug.log
+php_errors.log
 
-# System files
+# OS Files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-.env
+desktop.ini
 
-# Editor files
-.vscode/
-.idea/
+# Editor Files
 *.swp
 *.swo
 *~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
 
-# Backup files
+# Node & Package Managers
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Composer
+vendor/
+composer.lock
+
+# Build & Compiled Files
+*.min.js
+*.min.css
+*.map
+dist/
+build/
+
+# Sass & LESS
+.sass-cache/
+*.css.map
+
+# Temporary & Cache Files
+tmp/
+temp/
+cache/
+.cache/
+
+# Backup Files
 *.bak
 *.backup
+*~
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Data Files (from old HTML site)
+data/
+*.csv
+
+# Testing
+coverage/
+.nyc_output/

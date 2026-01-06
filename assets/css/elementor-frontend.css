@@ -1,0 +1,127 @@
+/**
+ * Elementor Frontend Styles for 7 Ensemble
+ *
+ * Additional styles specific to Elementor widgets
+ */
+
+/* Registration Form Inline Mode */
+.sept-registration-form-inline {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.7), rgba(83, 52, 131, 0.7));
+    backdrop-filter: blur(30px);
+    padding: 3rem;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    max-width: 700px;
+    margin: 2rem auto;
+}
+
+.sept-registration-form-inline .form-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #4ecdc4;
+    text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+    font-weight: bold;
+}
+
+/* Constellation Animation Control */
+.constellation-static .constellation-member {
+    animation: none !important;
+}
+
+.constellation-animated .constellation-member {
+    animation-duration: var(--animation-speed, 8s);
+}
+
+/* Modal Trigger Button */
+.sept-modal-trigger {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    display: inline-block;
+}
+
+.sept-modal-trigger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+/* Elementor Editor Specific Styles */
+.elementor-editor-active .sept-registration-modal {
+    position: relative !important;
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.elementor-editor-active .modal-glassmorphic {
+    position: relative !important;
+    background: rgba(26, 35, 126, 0.3) !important;
+    min-height: auto !important;
+}
+
+/* Form Container Styles */
+.sept-registration-form-container {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.7), rgba(83, 52, 131, 0.7));
+    backdrop-filter: blur(30px);
+    padding: 2rem;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sept-registration-form-inline,
+    .sept-registration-form-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .sept-modal-trigger {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+}
+
+/* Elementor Widget Spacing */
+.elementor-widget-7ensemble_hero,
+.elementor-widget-7ensemble_constellation,
+.elementor-widget-7ensemble_principe,
+.elementor-widget-7ensemble_tours,
+.elementor-widget-7ensemble_registration_form,
+.elementor-widget-7ensemble_stats {
+    margin-bottom: 0;
+}
+
+/* Prevent Elementor Container Conflicts */
+.elementor-widget-7ensemble_hero .container,
+.elementor-widget-7ensemble_principe .container,
+.elementor-widget-7ensemble_tours .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Live Preview Improvements */
+.elementor-element.elementor-widget-7ensemble_hero {
+    background: transparent;
+}
+
+/* Animation Performance Optimization */
+@media (prefers-reduced-motion: reduce) {
+    .constellation-member {
+        animation: none !important;
+    }
+
+    .constellation-center {
+        animation: none !important;
+    }
+}

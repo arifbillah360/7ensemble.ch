@@ -1,3 +1,22 @@
+/*
+Theme Name: 7 Ensemble
+Theme URI: https://7ensemble.ch
+Author: 7 Ensemble Team
+Author URI: https://7ensemble.ch
+Developer: Softorio (arif@softorio.com)
+Developer URI: https://softorio.com
+Description: A complete WordPress theme for the 7 Ensemble financial mutual aid platform with constellation logic and registration system
+Version: 1.1.0
+License: Time-Based Commercial License
+License URI: https://softorio.com/license
+License Expiry: December 31, 2026
+Text Domain: 7ensemble
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme is licensed until December 31, 2026 at 23:59:59.
+For license renewal or extension, contact: arif@softorio.com or visit https://softorio.com
+*/
+
 /* ========================================
    7 ENSEMBLE - GLOBAL STYLES
    ======================================== */
@@ -415,49 +434,42 @@ nav {
     top: 10px; left: 50%; transform: translateX(-50%);
     animation-delay: 0s;
     background: linear-gradient(45deg, #667eea, #764ba2);
-    background-image: url('../images/1.jpeg');
 }
 
 .member-2 {
     top: 30px; right: 30px;
     animation-delay: -1s;
     background: linear-gradient(45deg, #f093fb, #f5576c);
-    background-image: url('../images/2.jpeg');
 }
 
 .member-3 {
     top: 50%; right: 10px; transform: translateY(-50%);
     animation-delay: -2s;
     background: linear-gradient(45deg, #4ecdc4, #44a08d);
-    background-image: url('../images/3.jpeg');
 }
 
 .member-4 {
     bottom: 30px; right: 30px;
     animation-delay: -3s;
     background: linear-gradient(45deg, #a8edea, #fed6e3);
-    background-image: url('../images/4.jpeg');
 }
 
 .member-5 {
     bottom: 10px; left: 50%; transform: translateX(-50%);
     animation-delay: -4s;
     background: linear-gradient(45deg, #ffecd2, #fcb69f);
-    background-image: url('../images/5.jpeg');
 }
 
 .member-6 {
     bottom: 30px; left: 30px;
     animation-delay: -5s;
     background: linear-gradient(45deg, #ff9a9e, #fecfef);
-    background-image: url('../images/6.jpeg');
 }
 
 .member-7 {
     top: 50%; left: 10px; transform: translateY(-50%);
     animation-delay: -6s;
     background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
-    background-image: url('../images/7.jpeg');
 }
 
 @keyframes orbit {
@@ -737,94 +749,6 @@ nav {
     flex-shrink: 0;
 }
 
-.option-selection-glass {
-    margin: 2.5rem 0;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    border: 1px solid rgba(78, 205, 196, 0.3);
-}
-
-.option-title {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #f093fb;
-    font-weight: bold;
-}
-
-.radio-options {
-    display: grid;
-    gap: 1rem;
-}
-
-.radio-card {
-    display: block;
-    cursor: pointer;
-    position: relative;
-}
-
-.radio-card input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-}
-
-.radio-content {
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.radio-card:hover .radio-content {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: #4ecdc4;
-    transform: translateX(5px);
-}
-
-.radio-card input[type="radio"]:checked + .radio-content {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
-    border-color: #4ecdc4;
-    box-shadow: 0 0 30px rgba(78, 205, 196, 0.3);
-}
-
-.radio-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.radio-icon {
-    font-size: 1.2rem;
-    margin-right: 0.75rem;
-}
-
-.radio-card input[type="radio"]:checked ~ .radio-content .radio-icon {
-    filter: hue-rotate(180deg) brightness(1.5);
-}
-
-.radio-label {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-}
-
-.radio-amount {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #ff6b6b;
-    margin: 0.5rem 0;
-    text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-}
-
-.radio-description {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 0.5rem;
-}
-
 .btn-submit-glass {
     width: 100%;
     padding: 18px 30px;
@@ -931,394 +855,6 @@ nav {
 }
 
 /* ========================================
-   MISSION CARDS
-   ======================================== */
-
-.mission-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.mission-card {
-    background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(255,0,255,0.1));
-    padding: 2rem;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: transform 0.3s;
-}
-
-.mission-card:hover {
-    transform: translateY(-5px);
-}
-
-.mission-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-/* ========================================
-   TOURS PAGE SPECIFIC STYLES
-   ======================================== */
-
-.main-title {
-    text-align: center;
-    font-size: 3rem;
-    margin: 3rem 0;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.section {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 3rem;
-    border-radius: 20px;
-    margin: 3rem 0;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.tours-overview {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin: 3rem 0;
-}
-
-.tour-table {
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
-    border-radius: 15px;
-    padding: 2rem;
-    overflow-x: auto;
-}
-
-.table-title {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-radius: 10px;
-}
-
-.option-3 .table-title {
-    background: linear-gradient(45deg, #f093fb, #f5576c);
-    color: white;
-}
-
-.option-7 .table-title {
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    color: white;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 1rem;
-}
-
-th {
-    background: rgba(255,255,255,0.2);
-    padding: 1rem 0.5rem;
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-td {
-    padding: 0.8rem 0.5rem;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    font-weight: bold;
-}
-
-.tour-row:nth-child(even) {
-    background: rgba(255,255,255,0.05);
-}
-
-.amount {
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.total-row {
-    background: linear-gradient(45deg, rgba(255,107,107,0.3), rgba(78,205,196,0.3));
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.explanation {
-    background: linear-gradient(45deg, rgba(78,205,196,0.1), rgba(255,107,107,0.1));
-    padding: 2rem;
-    border-radius: 15px;
-    margin: 2rem 0;
-    border-left: 5px solid #4ecdc4;
-}
-
-.important-note {
-    background: rgba(255,107,107,0.2);
-    padding: 2rem;
-    border-radius: 15px;
-    margin: 2rem 0;
-    border-left: 5px solid #ff6b6b;
-    font-weight: 500;
-}
-
-.highlight-number {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #4ecdc4;
-}
-
-/* ========================================
-   MISSION PAGE SPECIFIC STYLES
-   ======================================== */
-
-/* Confetti Animation */
-.confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #ff6b6b;
-    animation: confetti-fall 3s linear infinite;
-}
-
-.confetti:nth-child(2n) { background: #4ecdc4; animation-delay: -0.5s; }
-.confetti:nth-child(3n) { background: #45b7d1; animation-delay: -1s; }
-.confetti:nth-child(4n) { background: #feca57; animation-delay: -1.5s; }
-.confetti:nth-child(5n) { background: #f093fb; animation-delay: -2s; }
-
-@keyframes confetti-fall {
-    0% {
-        transform: translateY(-100vh) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-.hero-mission {
-    padding: 4rem 0;
-    text-align: center;
-    position: relative;
-}
-
-.celebration-banner {
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #f093fb);
-    padding: 2rem;
-    border-radius: 20px;
-    margin: 2rem 0;
-    animation: pulse-glow 2s ease-in-out infinite alternate;
-    position: relative;
-    overflow: hidden;
-}
-
-.celebration-banner::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shine 3s linear infinite;
-}
-
-@keyframes pulse-glow {
-    0% { box-shadow: 0 0 20px rgba(255,107,107,0.5); }
-    100% { box-shadow: 0 0 40px rgba(78,205,196,0.8); }
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
-}
-
-.mission-title {
-    font-size: 4rem;
-    margin-bottom: 2rem;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-.impact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 4rem 0;
-}
-
-.impact-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
-    padding: 2rem;
-    border-radius: 20px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.2);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.impact-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    animation: card-shine 3s ease-in-out infinite;
-}
-
-@keyframes card-shine {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
-}
-
-.impact-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(255,107,107,0.3);
-}
-
-.impact-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    animation: float 3s ease-in-out infinite;
-}
-
-.impact-card:nth-child(2n) .impact-icon {
-    animation-delay: -1s;
-}
-
-.impact-card:nth-child(3n) .impact-icon {
-    animation-delay: -2s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-.testimonial-section {
-    background: linear-gradient(45deg, rgba(255,107,107,0.2), rgba(78,205,196,0.2));
-    padding: 4rem;
-    border-radius: 30px;
-    margin: 4rem 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.testimonial-section::before {
-    content: '🎉';
-    position: absolute;
-    font-size: 3rem;
-    top: 20px;
-    left: 20px;
-    animation: rotate 4s linear infinite;
-}
-
-.testimonial-section::after {
-    content: '✨';
-    position: absolute;
-    font-size: 2rem;
-    bottom: 20px;
-    right: 20px;
-    animation: rotate 4s linear infinite reverse;
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.gratitude-message {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ff6b6b;
-    margin-bottom: 2rem;
-    animation: text-glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes text-glow {
-    0% { text-shadow: 0 0 10px rgba(255,107,107,0.5); }
-    100% { text-shadow: 0 0 20px rgba(78,205,196,0.8); }
-}
-
-.creator-section {
-    background: rgba(255,255,255,0.05);
-    padding: 3rem;
-    border-radius: 25px;
-    margin: 3rem 0;
-    border-left: 5px solid #4ecdc4;
-}
-
-.quote-bubble {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    padding: 2rem;
-    border-radius: 20px;
-    margin: 2rem 0;
-    position: relative;
-    animation: bubble-float 4s ease-in-out infinite;
-}
-
-@keyframes bubble-float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-}
-
-.quote-bubble::before {
-    content: '"';
-    font-size: 6rem;
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    color: rgba(255,255,255,0.3);
-}
-
-.vision-goals {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.goal-item {
-    background: linear-gradient(135deg, rgba(240,147,251,0.2), rgba(245,87,108,0.2));
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    animation: goal-pulse 3s ease-in-out infinite;
-}
-
-.goal-item:nth-child(2n) {
-    animation-delay: -1s;
-}
-
-.goal-item:nth-child(3n) {
-    animation-delay: -2s;
-}
-
-@keyframes goal-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* ========================================
    GENERAL ANIMATIONS
    ======================================== */
 
@@ -1401,35 +937,6 @@ td {
         text-align: center;
     }
 
-    .tours-overview {
-        grid-template-columns: 1fr;
-    }
-
-    .main-title {
-        font-size: 2rem;
-    }
-
-    table {
-        font-size: 0.9rem;
-    }
-
-    th, td {
-        padding: 0.5rem 0.3rem;
-    }
-
-    .mission-title {
-        font-size: 2.5rem;
-    }
-
-    .gratitude-message {
-        font-size: 1.5rem;
-    }
-
-    .impact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Glassmorphic Modal Mobile Styles */
     .modal-content-glass {
         margin: 1rem;
         padding: 2rem 1.5rem;
@@ -1449,26 +956,6 @@ td {
     .select-glass {
         padding: 8px 12px;
         font-size: 0.95rem;
-    }
-
-    .option-selection-glass {
-        padding: 1.5rem 1rem;
-    }
-
-    .option-title {
-        font-size: 1.2rem;
-    }
-
-    .radio-content {
-        padding: 1rem;
-    }
-
-    .radio-amount {
-        font-size: 1.5rem;
-    }
-
-    .radio-description {
-        font-size: 0.85rem;
     }
 
     .btn-submit-glass {

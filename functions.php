@@ -798,6 +798,471 @@ function sept_elementor_body_class($classes) {
 add_filter('body_class', 'sept_elementor_body_class');
 
 /* ========================================
+   THEME CUSTOMIZER - DESIGN CUSTOMIZATION
+   Colors & Typography Settings
+   ======================================== */
+
+/**
+ * Register Theme Customizer Settings
+ */
+function sept_ensemble_customize_register($wp_customize) {
+
+    /* ===================================
+       COLORS SECTION
+       =================================== */
+
+    // Add Colors Panel
+    $wp_customize->add_panel('sept_colors_panel', array(
+        'title' => __('Theme Colors', '7ensemble'),
+        'description' => __('Customize theme colors to match your brand', '7ensemble'),
+        'priority' => 30,
+    ));
+
+    // Primary Colors Section
+    $wp_customize->add_section('sept_primary_colors', array(
+        'title' => __('Primary Colors', '7ensemble'),
+        'panel' => 'sept_colors_panel',
+        'priority' => 10,
+    ));
+
+    // Primary Color
+    $wp_customize->add_setting('sept_primary_color', array(
+        'default' => '#4ecdc4',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_primary_color', array(
+        'label' => __('Primary Color', '7ensemble'),
+        'description' => __('Main brand color (default: #4ecdc4 - Turquoise)', '7ensemble'),
+        'section' => 'sept_primary_colors',
+        'settings' => 'sept_primary_color',
+    )));
+
+    // Secondary Color
+    $wp_customize->add_setting('sept_secondary_color', array(
+        'default' => '#ff6b6b',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_secondary_color', array(
+        'label' => __('Secondary Color', '7ensemble'),
+        'description' => __('Secondary brand color (default: #ff6b6b - Coral Red)', '7ensemble'),
+        'section' => 'sept_primary_colors',
+        'settings' => 'sept_secondary_color',
+    )));
+
+    // Accent Color
+    $wp_customize->add_setting('sept_accent_color', array(
+        'default' => '#667eea',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_accent_color', array(
+        'label' => __('Accent Color', '7ensemble'),
+        'description' => __('Accent/highlight color (default: #667eea - Purple)', '7ensemble'),
+        'section' => 'sept_primary_colors',
+        'settings' => 'sept_accent_color',
+    )));
+
+    // Text Color
+    $wp_customize->add_setting('sept_text_color', array(
+        'default' => '#ffffff',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_text_color', array(
+        'label' => __('Text Color', '7ensemble'),
+        'description' => __('Main text color (default: #ffffff - White)', '7ensemble'),
+        'section' => 'sept_primary_colors',
+        'settings' => 'sept_text_color',
+    )));
+
+    // Background Gradient Section
+    $wp_customize->add_section('sept_gradient_colors', array(
+        'title' => __('Background Gradient', '7ensemble'),
+        'panel' => 'sept_colors_panel',
+        'priority' => 20,
+    ));
+
+    // Gradient Color 1
+    $wp_customize->add_setting('sept_gradient_color_1', array(
+        'default' => '#0f0c29',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_gradient_color_1', array(
+        'label' => __('Gradient Color 1 (Top)', '7ensemble'),
+        'description' => __('First gradient color (default: #0f0c29 - Dark Blue)', '7ensemble'),
+        'section' => 'sept_gradient_colors',
+        'settings' => 'sept_gradient_color_1',
+    )));
+
+    // Gradient Color 2
+    $wp_customize->add_setting('sept_gradient_color_2', array(
+        'default' => '#302b63',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_gradient_color_2', array(
+        'label' => __('Gradient Color 2 (Middle)', '7ensemble'),
+        'description' => __('Second gradient color (default: #302b63 - Purple)', '7ensemble'),
+        'section' => 'sept_gradient_colors',
+        'settings' => 'sept_gradient_color_2',
+    )));
+
+    // Gradient Color 3
+    $wp_customize->add_setting('sept_gradient_color_3', array(
+        'default' => '#24243e',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_gradient_color_3', array(
+        'label' => __('Gradient Color 3 (Bottom)', '7ensemble'),
+        'description' => __('Third gradient color (default: #24243e - Dark Purple)', '7ensemble'),
+        'section' => 'sept_gradient_colors',
+        'settings' => 'sept_gradient_color_3',
+    )));
+
+    // Button Colors Section
+    $wp_customize->add_section('sept_button_colors', array(
+        'title' => __('Button Colors', '7ensemble'),
+        'panel' => 'sept_colors_panel',
+        'priority' => 30,
+    ));
+
+    // Button Background
+    $wp_customize->add_setting('sept_button_bg_color', array(
+        'default' => '#4ecdc4',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_button_bg_color', array(
+        'label' => __('Button Background', '7ensemble'),
+        'description' => __('Primary button color (default: #4ecdc4)', '7ensemble'),
+        'section' => 'sept_button_colors',
+        'settings' => 'sept_button_bg_color',
+    )));
+
+    // Button Hover
+    $wp_customize->add_setting('sept_button_hover_color', array(
+        'default' => '#45b8b0',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sept_button_hover_color', array(
+        'label' => __('Button Hover', '7ensemble'),
+        'description' => __('Button color on hover (default: #45b8b0)', '7ensemble'),
+        'section' => 'sept_button_colors',
+        'settings' => 'sept_button_hover_color',
+    )));
+
+    /* ===================================
+       TYPOGRAPHY SECTION
+       =================================== */
+
+    // Add Typography Panel
+    $wp_customize->add_panel('sept_typography_panel', array(
+        'title' => __('Typography', '7ensemble'),
+        'description' => __('Customize fonts and text styling', '7ensemble'),
+        'priority' => 31,
+    ));
+
+    // Font Family Section
+    $wp_customize->add_section('sept_font_family', array(
+        'title' => __('Font Family', '7ensemble'),
+        'panel' => 'sept_typography_panel',
+        'priority' => 10,
+    ));
+
+    // Heading Font
+    $wp_customize->add_setting('sept_heading_font', array(
+        'default' => 'Poppins',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('sept_heading_font', array(
+        'label' => __('Heading Font', '7ensemble'),
+        'description' => __('Google Font for headings (default: Poppins)', '7ensemble'),
+        'section' => 'sept_font_family',
+        'type' => 'select',
+        'choices' => sept_ensemble_get_google_fonts(),
+    ));
+
+    // Body Font
+    $wp_customize->add_setting('sept_body_font', array(
+        'default' => 'Inter',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('sept_body_font', array(
+        'label' => __('Body Font', '7ensemble'),
+        'description' => __('Google Font for body text (default: Inter)', '7ensemble'),
+        'section' => 'sept_font_family',
+        'type' => 'select',
+        'choices' => sept_ensemble_get_google_fonts(),
+    ));
+
+    // Font Sizes Section
+    $wp_customize->add_section('sept_font_sizes', array(
+        'title' => __('Font Sizes', '7ensemble'),
+        'panel' => 'sept_typography_panel',
+        'priority' => 20,
+    ));
+
+    // H1 Font Size
+    $wp_customize->add_setting('sept_h1_size', array(
+        'default' => '3',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('sept_h1_size', array(
+        'label' => __('H1 Font Size (rem)', '7ensemble'),
+        'description' => __('Main heading size (default: 3rem)', '7ensemble'),
+        'section' => 'sept_font_sizes',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => '1',
+            'max' => '10',
+            'step' => '0.1',
+        ),
+    ));
+
+    // H2 Font Size
+    $wp_customize->add_setting('sept_h2_size', array(
+        'default' => '2.5',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('sept_h2_size', array(
+        'label' => __('H2 Font Size (rem)', '7ensemble'),
+        'description' => __('Secondary heading size (default: 2.5rem)', '7ensemble'),
+        'section' => 'sept_font_sizes',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => '1',
+            'max' => '8',
+            'step' => '0.1',
+        ),
+    ));
+
+    // Body Font Size
+    $wp_customize->add_setting('sept_body_size', array(
+        'default' => '1',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('sept_body_size', array(
+        'label' => __('Body Font Size (rem)', '7ensemble'),
+        'description' => __('Regular text size (default: 1rem)', '7ensemble'),
+        'section' => 'sept_font_sizes',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => '0.8',
+            'max' => '2',
+            'step' => '0.1',
+        ),
+    ));
+
+    // Font Weights Section
+    $wp_customize->add_section('sept_font_weights', array(
+        'title' => __('Font Weights', '7ensemble'),
+        'panel' => 'sept_typography_panel',
+        'priority' => 30,
+    ));
+
+    // Normal Font Weight
+    $wp_customize->add_setting('sept_font_weight_normal', array(
+        'default' => '400',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('sept_font_weight_normal', array(
+        'label' => __('Normal Font Weight', '7ensemble'),
+        'description' => __('Regular text weight (default: 400)', '7ensemble'),
+        'section' => 'sept_font_weights',
+        'type' => 'select',
+        'choices' => array(
+            '300' => __('Light (300)', '7ensemble'),
+            '400' => __('Regular (400)', '7ensemble'),
+            '500' => __('Medium (500)', '7ensemble'),
+        ),
+    ));
+
+    // Bold Font Weight
+    $wp_customize->add_setting('sept_font_weight_bold', array(
+        'default' => '700',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('sept_font_weight_bold', array(
+        'label' => __('Bold Font Weight', '7ensemble'),
+        'description' => __('Bold text weight (default: 700)', '7ensemble'),
+        'section' => 'sept_font_weights',
+        'type' => 'select',
+        'choices' => array(
+            '600' => __('Semi-Bold (600)', '7ensemble'),
+            '700' => __('Bold (700)', '7ensemble'),
+            '800' => __('Extra Bold (800)', '7ensemble'),
+            '900' => __('Black (900)', '7ensemble'),
+        ),
+    ));
+}
+add_action('customize_register', 'sept_ensemble_customize_register');
+
+/**
+ * Get list of popular Google Fonts
+ *
+ * @return array List of Google Fonts
+ */
+function sept_ensemble_get_google_fonts() {
+    return array(
+        'Poppins' => 'Poppins',
+        'Inter' => 'Inter',
+        'Roboto' => 'Roboto',
+        'Open Sans' => 'Open Sans',
+        'Lato' => 'Lato',
+        'Montserrat' => 'Montserrat',
+        'Raleway' => 'Raleway',
+        'Nunito' => 'Nunito',
+        'Playfair Display' => 'Playfair Display',
+        'Merriweather' => 'Merriweather',
+        'Work Sans' => 'Work Sans',
+        'Outfit' => 'Outfit',
+        'DM Sans' => 'DM Sans',
+        'Space Grotesk' => 'Space Grotesk',
+        'Manrope' => 'Manrope',
+    );
+}
+
+/**
+ * Enqueue Google Fonts
+ */
+function sept_ensemble_enqueue_google_fonts() {
+    $heading_font = get_theme_mod('sept_heading_font', 'Poppins');
+    $body_font = get_theme_mod('sept_body_font', 'Inter');
+
+    // Combine fonts for single request
+    $fonts = array();
+    if ($heading_font) {
+        $fonts[] = str_replace(' ', '+', $heading_font) . ':300,400,500,600,700,800,900';
+    }
+    if ($body_font && $body_font !== $heading_font) {
+        $fonts[] = str_replace(' ', '+', $body_font) . ':300,400,500,600,700,800,900';
+    }
+
+    if (!empty($fonts)) {
+        $fonts_url = 'https://fonts.googleapis.com/css2?family=' . implode('&family=', $fonts) . '&display=swap';
+        wp_enqueue_style('sept-google-fonts', $fonts_url, array(), null);
+    }
+}
+add_action('wp_enqueue_scripts', 'sept_ensemble_enqueue_google_fonts');
+
+/**
+ * Output Customizer CSS
+ */
+function sept_ensemble_customizer_css() {
+    // Get customizer values
+    $primary_color = get_theme_mod('sept_primary_color', '#4ecdc4');
+    $secondary_color = get_theme_mod('sept_secondary_color', '#ff6b6b');
+    $accent_color = get_theme_mod('sept_accent_color', '#667eea');
+    $text_color = get_theme_mod('sept_text_color', '#ffffff');
+
+    $gradient_1 = get_theme_mod('sept_gradient_color_1', '#0f0c29');
+    $gradient_2 = get_theme_mod('sept_gradient_color_2', '#302b63');
+    $gradient_3 = get_theme_mod('sept_gradient_color_3', '#24243e');
+
+    $button_bg = get_theme_mod('sept_button_bg_color', '#4ecdc4');
+    $button_hover = get_theme_mod('sept_button_hover_color', '#45b8b0');
+
+    $heading_font = get_theme_mod('sept_heading_font', 'Poppins');
+    $body_font = get_theme_mod('sept_body_font', 'Inter');
+
+    $h1_size = get_theme_mod('sept_h1_size', '3');
+    $h2_size = get_theme_mod('sept_h2_size', '2.5');
+    $body_size = get_theme_mod('sept_body_size', '1');
+
+    $font_normal = get_theme_mod('sept_font_weight_normal', '400');
+    $font_bold = get_theme_mod('sept_font_weight_bold', '700');
+
+    ?>
+    <style type="text/css">
+        /* Custom Colors */
+        :root {
+            --primary-color: <?php echo esc_attr($primary_color); ?>;
+            --secondary-color: <?php echo esc_attr($secondary_color); ?>;
+            --accent-color: <?php echo esc_attr($accent_color); ?>;
+            --text-color: <?php echo esc_attr($text_color); ?>;
+            --button-bg: <?php echo esc_attr($button_bg); ?>;
+            --button-hover: <?php echo esc_attr($button_hover); ?>;
+        }
+
+        /* Background Gradient */
+        body {
+            background: linear-gradient(135deg, <?php echo esc_attr($gradient_1); ?> 0%, <?php echo esc_attr($gradient_2); ?> 50%, <?php echo esc_attr($gradient_3); ?> 100%);
+            color: <?php echo esc_attr($text_color); ?>;
+            font-family: '<?php echo esc_attr($body_font); ?>', sans-serif;
+            font-size: <?php echo esc_attr($body_size); ?>rem;
+            font-weight: <?php echo esc_attr($font_normal); ?>;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: '<?php echo esc_attr($heading_font); ?>', sans-serif;
+            font-weight: <?php echo esc_attr($font_bold); ?>;
+        }
+
+        h1 {
+            font-size: <?php echo esc_attr($h1_size); ?>rem;
+        }
+
+        h2 {
+            font-size: <?php echo esc_attr($h2_size); ?>rem;
+        }
+
+        /* Primary Color Applications */
+        .transformation-amount,
+        .constellation-center,
+        a:hover,
+        .cta-button:hover {
+            color: <?php echo esc_attr($primary_color); ?>;
+        }
+
+        .btn-primary,
+        .cta-button {
+            background: <?php echo esc_attr($button_bg); ?>;
+        }
+
+        .btn-primary:hover,
+        .cta-button:hover {
+            background: <?php echo esc_attr($button_hover); ?>;
+        }
+
+        /* Secondary Color Applications */
+        .principe-card:hover,
+        .tour-item:hover {
+            border-color: <?php echo esc_attr($secondary_color); ?>;
+        }
+
+        /* Accent Color Applications */
+        .btn-submit-glass {
+            background: linear-gradient(45deg, <?php echo esc_attr($accent_color); ?>, <?php echo esc_attr($primary_color); ?>);
+        }
+
+        /* Text Color */
+        p, span, div, li {
+            color: <?php echo esc_attr($text_color); ?>;
+        }
+
+        /* Strong/Bold Elements */
+        strong, b {
+            font-weight: <?php echo esc_attr($font_bold); ?>;
+        }
+    </style>
+    <?php
+}
+add_action('wp_head', 'sept_ensemble_customizer_css');
+
+/* ========================================
    TIME-BASED LICENSE SYSTEM
    Version: 1.1.0 - DYNAMIC (Database-Driven)
    ======================================== */

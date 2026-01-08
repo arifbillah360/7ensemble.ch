@@ -8,6 +8,11 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<!-- Promotional Banner - Always visible on all pages -->
+<div class="promotional-banner">
+    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/banner.png" alt="<?php esc_attr_e('7 Ensemble - Entraide et Solidarité', '7ensemble'); ?>" class="banner-image">
+</div>
+
 <?php
 // Check if Elementor Pro Header is active
 $elementor_header_enabled = false;
@@ -18,11 +23,6 @@ if (function_exists('elementor_theme_do_location')) {
 // If no Elementor header, show default header
 if (!$elementor_header_enabled) :
 ?>
-
-<!-- Promotional Banner -->
-<div class="promotional-banner">
-    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/banner.png" alt="<?php esc_attr_e('7 Ensemble - Entraide et Solidarité', '7ensemble'); ?>" class="banner-image">
-</div>
 
 <header>
     <nav class="container">
